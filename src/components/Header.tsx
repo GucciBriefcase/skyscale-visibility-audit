@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import skyscaleLogo from "@/assets/skyscale-logo.jpg";
+import skyscaleLogo from "@/assets/skyscale-logo.png";
 import CTAButton from "./CTAButton";
 
 const navLinks = [
