@@ -55,6 +55,10 @@
   html {
     scroll-behavior: smooth;
   }
+  select option {
+    background: #111111;
+    color: white;
+  }
 }
 
 @layer utilities {

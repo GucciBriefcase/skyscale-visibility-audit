@@ -4,7 +4,7 @@ import CTAButton from "./CTAButton";
 
 const AuditForm: React.FC = () => {
   const [step, setStep] = useState(1);
-  const [direction, setDirection] = useState<"forward" | "back">("forward");
+  const [submitted, setSubmitted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     website: "",
