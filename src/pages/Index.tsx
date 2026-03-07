@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, X, Globe, Search, FileText, Clock } from "lucide-react";
+import { Check, X, Globe, Search, FileText, Clock, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AuditForm from "@/components/AuditForm";
@@ -44,9 +44,12 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-start">
           <div className="lg:pt-4">
             <ScrollReveal>
-              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.05] mb-8">
-                See whether your brand is eligible to appear in<br className="hidden lg:block" /> Google and AI&#8209;generated{'\u00A0'}answers
+              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3rem] leading-[1.05] mb-5">
+                See whether your brand is eligible to appear in Google and AI&#8209;generated{'\u00A0'}answers
               </h1>
+              <p className="text-muted-foreground text-[15px] leading-[1.7] mb-6 max-w-lg">
+                AI assistants don't rank businesses the way search engines do. They recommend brands they understand with confidence. This audit evaluates whether yours qualifies.
+              </p>
               <div className="space-y-2 ml-1">
                 {[
                   "Manual, senior reviewed assessment",
@@ -54,13 +57,18 @@ const Index = () => {
                   "Limited availability due to review capacity",
                 ].map((t) => (
                   <div key={t} className="border-l-2 border-[#00E5C8]/50 pl-4 py-1.5">
-                    <span className="text-body text-[15px] leading-[1.7]">{t}</span>
+                    <span className="text-body text-sm leading-[1.7]">{t}</span>
                   </div>
                 ))}
               </div>
-              <div className="flex items-center gap-2 mt-8 opacity-60">
+              <div className="border-t border-border/50 mt-6 mb-4 max-w-[280px]" />
+              <div className="flex items-center gap-2 opacity-60">
                 <Clock size={14} className="text-body flex-shrink-0" />
                 <span className="text-body text-[13px]">Typically delivered within 5 business days</span>
+              </div>
+              <div className="flex items-center gap-2 mt-2 opacity-60">
+                <Users size={14} className="text-muted-foreground flex-shrink-0" />
+                <span className="text-muted-foreground text-[13px]">200+ audits delivered across AU &amp; NZ</span>
               </div>
             </ScrollReveal>
           </div>
