@@ -5,7 +5,6 @@ import CTAButton from "./CTAButton";
 const AuditForm: React.FC = () => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     website: "",
     importance: "",
@@ -21,15 +20,8 @@ const AuditForm: React.FC = () => {
   const update = (key: string, value: string | boolean) =>
     setForm((f) => ({ ...f, [key]: value }));
 
-  const goNext = () => {
-    setDirection("forward");
-    setStep((s) => Math.min(s + 1, 3));
-  };
-
-  const goPrev = () => {
-    setDirection("back");
-    setStep((s) => Math.max(s - 1, 1));
-  };
+  const goNext = () => setStep((s) => Math.min(s + 1, 3));
+  const goPrev = () => setStep((s) => Math.max(s - 1, 1));
 
   const handleSubmit = () => {
     console.log("Audit form submitted:", form);
