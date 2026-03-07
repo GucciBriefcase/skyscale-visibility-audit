@@ -73,10 +73,24 @@ const AuditForm: React.FC = () => {
 
   return (
     <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-6 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
-      <h3 className="text-foreground font-bold text-lg mb-1">Request Form</h3>
-      <p className="text-body text-[13px] italic mb-5">
+      <h3 className="text-foreground font-bold text-lg mb-1">Request Your Free Audit</h3>
+      <p className="text-body text-[13px] italic mb-3">
         Takes ~2 minutes. Each request is manually reviewed by senior consultants.
       </p>
+      <div className="flex items-center gap-4 mb-5 pt-3 border-t border-border/50">
+        <div className="flex items-center gap-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00E5C8" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span className="text-muted-foreground text-[11px]">No spam</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00E5C8" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span className="text-muted-foreground text-[11px]">Manually reviewed</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00E5C8" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span className="text-muted-foreground text-[11px]">Data stays private</span>
+        </div>
+      </div>
       <p className="text-muted-foreground text-[13px] font-medium mb-4">
         Step {step} of 3 — {stepNames[step - 1]}
       </p>
@@ -220,16 +234,14 @@ const AuditForm: React.FC = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-between mt-4">
-        {step > 1 ? (
+      <div className={`flex items-center mt-4 ${step > 1 ? 'justify-between' : 'justify-end'}`}>
+        {step > 1 && (
           <button
             onClick={goPrev}
             className="text-muted-foreground text-sm font-medium hover:text-foreground transition-colors duration-200"
           >
             Prev
           </button>
-        ) : (
-          <span />
         )}
         {step < 3 ? (
           <CTAButton size="md" onClick={goNext}>Continue</CTAButton>
