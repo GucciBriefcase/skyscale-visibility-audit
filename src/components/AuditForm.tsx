@@ -79,10 +79,6 @@ const AuditForm: React.FC = () => {
     "Other",
   ];
 
-  const animationCls = direction === "forward"
-    ? "animate-[slideInRight_200ms_ease-out_forwards]"
-    : "animate-[slideInLeft_200ms_ease-out_forwards]";
-
   return (
     <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-7 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
       <h3 className="text-foreground font-bold text-lg mb-1">Request Form</h3>
@@ -93,10 +89,10 @@ const AuditForm: React.FC = () => {
         Step {step} of 3 — {stepNames[step - 1]}
       </p>
 
-      <div className="min-h-[260px] overflow-hidden">
+      <div>
         {step === 1 && (
-          <div key="step1" className={animationCls}>
-            <div className="space-y-4">
+          <div key={step} className="animate-fade-in">
+            <div className="space-y-4 pb-2">
               <div>
                 <label className={labelCls}>What's your website?</label>
                 <input
