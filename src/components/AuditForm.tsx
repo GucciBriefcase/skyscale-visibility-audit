@@ -41,11 +41,11 @@ const AuditForm: React.FC = () => {
   const inputCls =
     "w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground text-sm font-normal placeholder:text-[#7A9490] focus:outline-none focus:ring-1 focus:ring-[#00E5C8] transition";
 
-  const labelCls = "block text-sm font-semibold text-foreground mb-2";
+  const labelCls = "block text-sm font-semibold text-foreground mb-1.5";
 
   if (submitted) {
     return (
-      <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-8 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
+      <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-7 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
         <div className="flex flex-col items-center justify-center py-12 animate-fade-in-up" style={{ animationDuration: "400ms" }}>
           <CheckCircle2 size={48} className="text-[#00E5C8] mb-4" />
           <p className="text-foreground font-bold text-xl mb-2">Thank you!</p>
@@ -84,19 +84,19 @@ const AuditForm: React.FC = () => {
     : "animate-[slideInLeft_200ms_ease-out_forwards]";
 
   return (
-    <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-8 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
+    <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-7 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
       <h3 className="text-foreground font-bold text-lg mb-1">Request Form</h3>
-      <p className="text-body text-[13px] italic mb-6">
+      <p className="text-body text-[13px] italic mb-5">
         Takes ~2 minutes. Each request is manually reviewed by senior consultants.
       </p>
-      <p className="text-muted-foreground text-[13px] font-medium mb-5">
+      <p className="text-muted-foreground text-[13px] font-medium mb-4">
         Step {step} of 3 — {stepNames[step - 1]}
       </p>
 
-      <div className="min-h-[280px] overflow-hidden">
+      <div className="min-h-[260px] overflow-hidden">
         {step === 1 && (
           <div key="step1" className={animationCls}>
-            <div className="space-y-5">
+            <div className="space-y-4">
               <div>
                 <label className={labelCls}>What's your website?</label>
                 <input
@@ -135,7 +135,7 @@ const AuditForm: React.FC = () => {
                     </button>
                   ))}
                 </div>
-                <p className="text-body text-xs mt-2">
+                <p className="text-body text-xs mt-2 mb-4">
                   Requests marked 'Not critical' may not be reviewed.
                 </p>
               </div>
@@ -232,7 +232,7 @@ const AuditForm: React.FC = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-between mt-4">
+      <div className="flex items-center justify-between mt-0">
         {step > 1 ? (
           <button
             onClick={goPrev}

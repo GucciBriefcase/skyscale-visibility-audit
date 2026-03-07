@@ -38,16 +38,16 @@ const Index = () => {
 
       {/* 1. Hero */}
       <Section id="hero" className="pt-12 md:pt-20">
+        <p className="text-body text-[13px] font-medium uppercase tracking-[0.15em] mb-5">
+          Free AI & Search Visibility Audit
+        </p>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3">
             <ScrollReveal>
-              <p className="text-body text-[13px] font-medium uppercase tracking-[0.15em] mb-5">
-                Free AI & Search Visibility Audit
-              </p>
-              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[4rem] leading-[1.05] mb-8" style={{ textWrap: 'balance' } as React.CSSProperties}>
-                See whether your brand is eligible to appear in Google and AI-generated answers
+              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.05] mb-8">
+                See whether your brand is eligible to appear in<br className="hidden lg:block" /> Google and AI&#8209;generated{'\u00A0'}answers
               </h1>
-              <div className="space-y-2">
+              <div className="space-y-2 ml-1">
                 {[
                   "Manual, senior reviewed assessment",
                   "Best suited for businesses where online visibility directly affects revenue",
