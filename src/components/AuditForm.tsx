@@ -37,7 +37,7 @@ const AuditForm: React.FC = () => {
 
   if (submitted) {
     return (
-      <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-7 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
+      <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-6 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
         <div className="flex flex-col items-center justify-center py-12 animate-fade-in-up" style={{ animationDuration: "400ms" }}>
           <CheckCircle2 size={48} className="text-[#00E5C8] mb-4" />
           <p className="text-foreground font-bold text-xl mb-2">Thank you!</p>
@@ -72,7 +72,7 @@ const AuditForm: React.FC = () => {
   ];
 
   return (
-    <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-7 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
+    <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-6 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
       <h3 className="text-foreground font-bold text-lg mb-1">Request Form</h3>
       <p className="text-body text-[13px] italic mb-5">
         Takes ~2 minutes. Each request is manually reviewed by senior consultants.
