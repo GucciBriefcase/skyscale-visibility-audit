@@ -135,7 +135,7 @@ const AuditForm: React.FC = () => {
                     </button>
                   ))}
                 </div>
-                <p className="text-body text-xs mt-2">
+                <p className="text-body text-xs mt-2 mb-4">
                   Requests marked 'Not critical' may not be reviewed.
                 </p>
               </div>
