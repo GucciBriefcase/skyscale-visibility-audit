@@ -28,7 +28,7 @@ const Header: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="#hero" className="flex-shrink-0">
-          <img src={skyscaleLogo} alt="SkyScale" className="h-7" />
+          <img src={skyscaleLogo} alt="SkyScale" className="h-10" />
         </a>
 
         {/* Desktop nav */}
