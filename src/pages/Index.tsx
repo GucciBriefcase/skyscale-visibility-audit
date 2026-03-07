@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, X, Globe, Search, FileText } from "lucide-react";
+import { Check, X, Globe, Search, FileText, Clock, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AuditForm from "@/components/AuditForm";
@@ -37,7 +37,7 @@ const Index = () => {
       <WhatsAppButton />
 
       {/* 1. Hero */}
-      <Section id="hero" className="pt-16 md:pt-24">
+      <Section id="hero" className="pt-12 md:pt-20">
         <p className="text-body text-[13px] font-medium uppercase tracking-[0.15em] mb-5">
           Free AI & Search Visibility Audit
         </p>
@@ -47,38 +47,28 @@ const Index = () => {
               <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3rem] leading-[1.05] mb-5">
                 See whether your brand is eligible to appear in Google and AI&#8209;generated{'\u00A0'}answers
               </h1>
-              <div className="flex items-center gap-6 flex-wrap mb-8 mt-6">
-                <div className="flex flex-col">
-                  <span className="text-[#00E5C8] text-2xl font-bold font-['Syne']">200+</span>
-                  <span className="text-muted-foreground text-xs">Audits delivered</span>
-                </div>
-                <div className="w-px h-8 bg-border/30" />
-                <div className="flex flex-col">
-                  <span className="text-[#00E5C8] text-2xl font-bold font-['Syne']">4.9/5</span>
-                  <span className="text-muted-foreground text-xs">Avg. client rating</span>
-                </div>
-                <div className="w-px h-8 bg-border/30" />
-                <div className="flex flex-col">
-                  <span className="text-[#00E5C8] text-2xl font-bold font-['Syne']">~48hr</span>
-                  <span className="text-muted-foreground text-xs">Avg. turnaround</span>
-                </div>
+              <p className="text-muted-foreground text-[15px] leading-[1.7] mb-6 max-w-lg">
+                AI assistants don't rank businesses the way search engines do. They recommend brands they understand with confidence. This audit evaluates whether yours qualifies.
+              </p>
+              <div className="space-y-2 ml-1">
+                {[
+                  "Manual, senior reviewed assessment",
+                  "Best suited for businesses where online visibility directly affects revenue",
+                  "Limited availability due to review capacity",
+                ].map((t) => (
+                  <div key={t} className="border-l-2 border-[#00E5C8]/50 pl-4 py-1.5">
+                    <span className="text-body text-sm leading-[1.7]">{t}</span>
+                  </div>
+                ))}
               </div>
-              <div className="bg-[rgba(0,229,200,0.03)] border border-[rgba(0,229,200,0.06)] rounded-xl p-4 px-5">
-                <div className="space-y-2.5">
-                  {[
-                    "Manual, senior reviewed assessment",
-                    "Best suited for businesses where online visibility directly affects revenue",
-                    "Limited availability due to review capacity",
-                  ].map((t) => (
-                    <div key={t} className="border-l-2 border-[#00E5C8]/50 pl-4 py-1.5">
-                      <span className="text-body text-sm leading-[1.7]">{t}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="border-t border-border/50 mt-6 mb-4 max-w-[280px]" />
+              <div className="flex items-center gap-2 opacity-60">
+                <Clock size={14} className="text-body flex-shrink-0" />
+                <span className="text-body text-[13px]">Typically delivered within 5 business days</span>
               </div>
-              <div className="flex items-center gap-2 mt-4">
-                <span className="w-2 h-2 rounded-full bg-[#00E5C8] animate-pulse" />
-                <span className="text-muted-foreground text-[13px]">Limited spots — <span className="text-foreground font-medium">3 audit slots remaining this month</span></span>
+              <div className="flex items-center gap-2 mt-2 opacity-60">
+                <Users size={14} className="text-muted-foreground flex-shrink-0" />
+                <span className="text-muted-foreground text-[13px]">200+ audits delivered across AU &amp; NZ</span>
               </div>
             </ScrollReveal>
           </div>
