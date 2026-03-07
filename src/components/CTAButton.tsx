@@ -10,9 +10,9 @@ interface CTAButtonProps {
 }
 
 const sizes = {
-  sm: "text-sm px-6 py-2.5",
-  md: "text-sm px-7 py-3",
-  lg: "text-lg px-11 py-3.5",
+  sm: "text-sm px-[24px] py-[12px]",
+  md: "text-sm px-[28px] py-[14px]",
+  lg: "text-lg px-[44px] py-[18px]",
 };
 
 const CTAButton: React.FC<CTAButtonProps> = ({
