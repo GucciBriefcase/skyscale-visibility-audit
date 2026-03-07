@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import skyscaleLogo from "@/assets/skyscale-logo.jpg";
 import CTAButton from "./CTAButton";
 
 const navLinks = [
@@ -26,8 +27,8 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="#hero" className="text-foreground font-bold text-xl tracking-tight">
-          SkyScale
+        <a href="#hero" className="flex-shrink-0">
+          <img src={skyscaleLogo} alt="SkyScale" className="h-7" />
         </a>
 
         {/* Desktop nav */}
