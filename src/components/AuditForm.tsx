@@ -4,7 +4,6 @@ import CTAButton from "./CTAButton";
 
 const AuditForm: React.FC = () => {
   const [step, setStep] = useState(1);
-  const [direction, setDirection] = useState<"forward" | "back">("forward");
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     website: "",
@@ -21,15 +20,8 @@ const AuditForm: React.FC = () => {
   const update = (key: string, value: string | boolean) =>
     setForm((f) => ({ ...f, [key]: value }));
 
-  const goNext = () => {
-    setDirection("forward");
-    setStep((s) => Math.min(s + 1, 3));
-  };
-
-  const goPrev = () => {
-    setDirection("back");
-    setStep((s) => Math.max(s - 1, 1));
-  };
+  const goNext = () => setStep((s) => Math.min(s + 1, 3));
+  const goPrev = () => setStep((s) => Math.max(s - 1, 1));
 
   const handleSubmit = () => {
     console.log("Audit form submitted:", form);
@@ -79,10 +71,6 @@ const AuditForm: React.FC = () => {
     "Other",
   ];
 
-  const animationCls = direction === "forward"
-    ? "animate-[slideInRight_200ms_ease-out_forwards]"
-    : "animate-[slideInLeft_200ms_ease-out_forwards]";
-
   return (
     <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-7 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
       <h3 className="text-foreground font-bold text-lg mb-1">Request Form</h3>
@@ -93,10 +81,10 @@ const AuditForm: React.FC = () => {
         Step {step} of 3 — {stepNames[step - 1]}
       </p>
 
-      <div className="min-h-[260px] overflow-hidden">
+      <div>
         {step === 1 && (
-          <div key="step1" className={animationCls}>
-            <div className="space-y-4">
+          <div key={step} className="animate-fade-in">
+            <div className="space-y-4 pb-2">
               <div>
                 <label className={labelCls}>What's your website?</label>
                 <input
@@ -144,8 +132,8 @@ const AuditForm: React.FC = () => {
         )}
 
         {step === 2 && (
-          <div key="step2" className={animationCls}>
-            <div className="space-y-5">
+          <div key={step} className="animate-fade-in">
+            <div className="space-y-5 pb-2">
               <div>
                 <label className={labelCls}>Which best describes your role?</label>
                 <div className="relative">
@@ -183,8 +171,8 @@ const AuditForm: React.FC = () => {
         )}
 
         {step === 3 && (
-          <div key="step3" className={animationCls}>
-            <div className="space-y-4">
+          <div key={step} className="animate-fade-in">
+            <div className="space-y-4 pb-2">
               <div>
                 <label className={labelCls}>Full Name</label>
                 <input className={inputCls} value={form.fullName} onChange={(e) => update("fullName", e.target.value)} />
@@ -232,7 +220,7 @@ const AuditForm: React.FC = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-between mt-0">
+      <div className="flex items-center justify-between mt-4">
         {step > 1 ? (
           <button
             onClick={goPrev}

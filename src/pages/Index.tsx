@@ -41,8 +41,8 @@ const Index = () => {
         <p className="text-body text-[13px] font-medium uppercase tracking-[0.15em] mb-5">
           Free AI & Search Visibility Audit
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-          <div className="lg:col-span-3">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-start">
+          <div className="lg:pt-4">
             <ScrollReveal>
               <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.05] mb-8">
                 See whether your brand is eligible to appear in<br className="hidden lg:block" /> Google and AI&#8209;generated{'\u00A0'}answers
@@ -53,18 +53,18 @@ const Index = () => {
                   "Best suited for businesses where online visibility directly affects revenue",
                   "Limited availability due to review capacity",
                 ].map((t) => (
-                  <div key={t} className="border-l-2 border-[#00E5C8]/30 pl-4 py-1">
+                  <div key={t} className="border-l-2 border-[#00E5C8]/50 pl-4 py-1.5">
                     <span className="text-body text-[15px] leading-[1.7]">{t}</span>
                   </div>
                 ))}
               </div>
-              <div className="flex items-center gap-2 mt-8">
+              <div className="flex items-center gap-2 mt-8 opacity-60">
                 <Clock size={14} className="text-body flex-shrink-0" />
                 <span className="text-body text-[13px]">Typically delivered within 5 business days</span>
               </div>
             </ScrollReveal>
           </div>
-          <div className="lg:col-span-2">
+          <div>
             <ScrollReveal>
               <AuditForm />
             </ScrollReveal>
