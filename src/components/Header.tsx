@@ -37,8 +37,10 @@ const Header: React.FC = () => {
             <a
               key={l.label}
               href={l.href}
-              className={`text-sm font-medium transition-colors duration-200 hover:text-foreground ${
-                l.active ? "text-foreground" : "text-muted-foreground"
+              className={`text-sm rounded-full px-4 py-1.5 border transition-all duration-200 ${
+                l.active
+                  ? "bg-[rgba(0,229,200,0.10)] border-[rgba(0,229,200,0.25)] text-[#00E5C8] font-semibold"
+                  : "bg-transparent border-transparent text-muted-foreground font-medium hover:text-foreground"
               }`}
             >
               {l.label}
