@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, X, Globe, Search, FileText } from "lucide-react";
+import { Check, X, Globe, Search, FileText, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AuditForm from "@/components/AuditForm";
@@ -44,20 +44,23 @@ const Index = () => {
               <p className="text-body text-[13px] font-medium uppercase tracking-[0.15em] mb-5">
                 Free AI & Search Visibility Audit
               </p>
-              <h1 className="text-foreground font-black text-4xl md:text-5xl lg:text-[4rem] leading-[1.1] mb-8">
+              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[4rem] leading-[1.05] mb-8" style={{ textWrap: 'balance' } as React.CSSProperties}>
                 See whether your brand is eligible to appear in Google and AI-generated answers
               </h1>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {[
                   "Manual, senior reviewed assessment",
                   "Best suited for businesses where online visibility directly affects revenue",
                   "Limited availability due to review capacity",
                 ].map((t) => (
-                  <div key={t} className="flex items-center gap-3 border-l-2 border-[#00E5C8]/30 pl-4 py-1">
-                    <Check size={16} className="text-[#00E5C8] flex-shrink-0" />
+                  <div key={t} className="border-l-2 border-[#00E5C8]/30 pl-4 py-1">
                     <span className="text-body text-[15px] leading-[1.7]">{t}</span>
                   </div>
                 ))}
+              </div>
+              <div className="flex items-center gap-2 mt-8">
+                <Clock size={14} className="text-body flex-shrink-0" />
+                <span className="text-body text-[13px]">Typically delivered within 5 business days</span>
               </div>
             </ScrollReveal>
           </div>
