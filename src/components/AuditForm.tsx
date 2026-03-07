@@ -45,7 +45,7 @@ const AuditForm: React.FC = () => {
 
   if (submitted) {
     return (
-      <div className="bg-card border border-border rounded-2xl p-8 shadow-[0_0_60px_rgba(0,229,200,0.04)]">
+      <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-8 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
         <div className="flex flex-col items-center justify-center py-12 animate-fade-in-up" style={{ animationDuration: "400ms" }}>
           <CheckCircle2 size={48} className="text-[#00E5C8] mb-4" />
           <p className="text-foreground font-bold text-xl mb-2">Thank you!</p>
