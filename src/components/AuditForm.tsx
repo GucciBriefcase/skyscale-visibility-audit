@@ -140,8 +140,8 @@ const AuditForm: React.FC = () => {
         )}
 
         {step === 2 && (
-          <div key="step2" className={animationCls}>
-            <div className="space-y-5">
+          <div key={step} className="animate-fade-in">
+            <div className="space-y-5 pb-2">
               <div>
                 <label className={labelCls}>Which best describes your role?</label>
                 <div className="relative">
@@ -179,8 +179,8 @@ const AuditForm: React.FC = () => {
         )}
 
         {step === 3 && (
-          <div key="step3" className={animationCls}>
-            <div className="space-y-4">
+          <div key={step} className="animate-fade-in">
+            <div className="space-y-4 pb-2">
               <div>
                 <label className={labelCls}>Full Name</label>
                 <input className={inputCls} value={form.fullName} onChange={(e) => update("fullName", e.target.value)} />
@@ -228,7 +228,7 @@ const AuditForm: React.FC = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-between mt-0">
+      <div className="flex items-center justify-between mt-4">
         {step > 1 ? (
           <button
             onClick={goPrev}
