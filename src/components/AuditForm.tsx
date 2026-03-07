@@ -45,7 +45,7 @@ const AuditForm: React.FC = () => {
 
   if (submitted) {
     return (
-      <div className="bg-card border border-border rounded-2xl p-8 shadow-[0_0_60px_rgba(0,229,200,0.04)]">
+      <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-8 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
         <div className="flex flex-col items-center justify-center py-12 animate-fade-in-up" style={{ animationDuration: "400ms" }}>
           <CheckCircle2 size={48} className="text-[#00E5C8] mb-4" />
           <p className="text-foreground font-bold text-xl mb-2">Thank you!</p>
@@ -84,12 +84,12 @@ const AuditForm: React.FC = () => {
     : "animate-[slideInLeft_200ms_ease-out_forwards]";
 
   return (
-    <div className="bg-card border border-border rounded-2xl p-8 shadow-[0_0_60px_rgba(0,229,200,0.04)]">
+    <div className="bg-card border border-[rgba(0,229,200,0.10)] rounded-2xl p-8 shadow-[0_0_80px_rgba(0,229,200,0.03)]">
       <h3 className="text-foreground font-bold text-lg mb-1">Request Form</h3>
       <p className="text-body text-[13px] italic mb-6">
         Takes ~2 minutes. Each request is manually reviewed by senior consultants.
       </p>
-      <p className="text-muted-foreground text-sm font-semibold mb-5">
+      <p className="text-muted-foreground text-[13px] font-medium mb-5">
         Step {step} of 3 — {stepNames[step - 1]}
       </p>
 
@@ -116,7 +116,7 @@ const AuditForm: React.FC = () => {
                       key={opt}
                       type="button"
                       onClick={() => update("importance", opt)}
-                      className={`w-full flex items-center gap-3 border rounded-lg px-4 py-3 cursor-pointer transition-all text-left ${
+                      className={`w-full flex items-center gap-3 border rounded-lg px-4 py-3 cursor-pointer transition-all duration-200 ease-in-out text-left ${
                         form.importance === opt
                           ? "border-[#00E5C8] bg-[rgba(0,229,200,0.04)]"
                           : "border-border bg-transparent hover:border-muted-foreground/30"
@@ -232,7 +232,7 @@ const AuditForm: React.FC = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-between mt-6">
+      <div className="flex items-center justify-between mt-4">
         {step > 1 ? (
           <button
             onClick={goPrev}
