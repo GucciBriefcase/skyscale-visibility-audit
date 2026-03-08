@@ -277,7 +277,7 @@ const Index = () => {
                 placeholder="Enter your website URL"
                 className="flex-[1.8] min-w-0 bg-secondary border border-border rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
               />
-              <CTAButton size="md" className="flex-1 h-12 px-6 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
+              <CTAButton size="lg" className="flex-1 h-12 px-8 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
                 Get My Free Audit →
               </CTAButton>
             </div>
