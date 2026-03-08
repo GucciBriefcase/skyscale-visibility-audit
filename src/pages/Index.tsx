@@ -250,7 +250,7 @@ const Index = () => {
                 { val: "$0", label: "No credit card" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
-                  <p className="text-primary font-syne font-extrabold text-2xl md:text-3xl">{s.val}</p>
+                  <p className="text-primary font-extrabold text-2xl md:text-3xl leading-normal">{s.val}</p>
                   <p className="text-muted-foreground text-xs mt-1">{s.label}</p>
                 </div>
               ))}
