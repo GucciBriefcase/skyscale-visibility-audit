@@ -75,7 +75,13 @@
     background-color: hsl(var(--background-alt));
   }
   .bg-cta-gradient {
-    background: linear-gradient(to bottom, hsl(240 20% 6%), hsl(170 100% 45% / 0.08));
+    background: linear-gradient(to bottom, hsl(170 100% 45% / 0.06), hsl(240 20% 4%) 30%, hsl(240 20% 4%));
+  }
+  .bg-problem {
+    background-color: hsl(222 47% 7%);
+  }
+  .bg-testimonials {
+    background: radial-gradient(ellipse at center, hsl(170 100% 45% / 0.03) 0%, transparent 70%), hsl(240 20% 5%);
   }
   .section-divider {
     border-color: hsl(var(--section-divider));

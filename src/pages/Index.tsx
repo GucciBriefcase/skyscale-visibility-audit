@@ -28,10 +28,11 @@ const Section: React.FC<{
   className?: string;
   id?: string;
   alt?: boolean;
-}> = ({ children, className = "", id, alt }) => (
+  bg?: string;
+}> = ({ children, className = "", id, alt, bg }) => (
   <section
     id={id}
-    className={`py-24 md:py-32 noise-overlay ${alt ? "bg-alt" : "bg-background"} ${className}`}
+    className={`py-24 md:py-32 noise-overlay ${bg ? bg : alt ? "bg-alt" : "bg-background"} ${className}`}
   >
     <div className="max-w-6xl mx-auto px-6">{children}</div>
   </section>
@@ -62,23 +63,23 @@ const testimonials = [
 const HeroForm: React.FC = () => {
   const [url, setUrl] = useState("");
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-[550px] mx-auto">
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="url"
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-1 bg-card border border-border rounded-full px-5 py-3.5 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-1 bg-card border border-border rounded-full px-5 py-3.5 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
-        <CTAButton size="md" onClick={() => {
+        <CTAButton size="lg" className="h-[52px] px-8 shadow-[0_0_20px_hsl(170_100%_45%/0.3)]" onClick={() => {
           const el = document.getElementById("audit-form");
           if (el) el.scrollIntoView({ behavior: "smooth" });
         }}>
           Get My Free Audit →
         </CTAButton>
       </div>
-      <p className="text-caption text-xs text-center mt-3">
+      <p className="text-caption text-xs text-center mt-4">
         No credit card · Delivered in 48 hours · 100% human-reviewed
       </p>
     </div>
@@ -184,14 +185,14 @@ const BottomForm: React.FC = () => {
       )}
 
       <div className="mt-6">
-        <CTAButton size="lg" className="w-full" onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
+        <CTAButton size="lg" className="w-full shadow-[0_0_20px_hsl(170_100%_45%/0.3)]" onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
           Get My Free Audit →
         </CTAButton>
       </div>
 
       <div className="flex items-center justify-center gap-1.5 mt-4 text-muted-foreground">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
-        <span className="text-xs">We never store your data</span>
+        <span className="text-xs">Your data stays private</span>
       </div>
     </div>
   );
@@ -209,13 +210,13 @@ const Index = () => {
       <WhatsAppButton />
 
       {/* ───── 1. HERO — spacious, focused ───── */}
-      <Section id="hero" className="pt-16 md:pt-24">
+      <Section id="hero" className="pt-16 md:pt-24 pb-28 md:pb-36">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-14">
             <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-5">
               Free AI & Search Visibility Audit
             </p>
-            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-6">
+            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-8">
               See whether your brand is eligible to appear in AI&#8209;generated answers
             </h1>
             <p className="text-body text-lg leading-relaxed max-w-2xl mx-auto">
@@ -265,14 +266,14 @@ const Index = () => {
       <SectionDivider />
 
       {/* ───── 2. PROBLEM — slightly lighter bg ───── */}
-      <section id="invisible" className="py-24 md:py-32 noise-overlay" style={{ background: "hsl(240 25% 8%)" }}>
+      <section id="invisible" className="py-24 md:py-32 noise-overlay bg-problem">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
               <img src={invisibleImg} alt="AI visibility data" className="rounded-xl w-full object-cover" />
             </ScrollReveal>
             <ScrollReveal>
-              <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-5">
+              <h2 className="text-foreground font-bold text-3xl mb-4">
                 Most businesses are invisible in AI answers
               </h2>
               <p className="text-body text-base leading-relaxed mb-4">
@@ -294,38 +295,41 @@ const Index = () => {
       {/* ───── 3. HOW IT WORKS — elevated card container ───── */}
       <Section id="how-it-works">
         <ScrollReveal>
-          <h2 className="text-foreground font-bold text-2xl md:text-3xl text-center mb-16">
+          <h2 className="text-foreground font-bold text-3xl text-center mb-4">
             How it works
           </h2>
+          <p className="text-body text-base text-center mb-14 max-w-xl mx-auto">
+            Three simple steps to understanding your AI visibility.
+          </p>
         </ScrollReveal>
-        <div className="card-premium rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+        <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               {
                 num: "01",
-                icon: <Send size={22} className="text-primary" />,
+                icon: <Send size={28} className="text-primary" />,
                 title: "You submit your website",
                 desc: "Fill out the short form with your website and a few details about your business.",
               },
               {
                 num: "02",
-                icon: <ClipboardCheck size={22} className="text-primary" />,
+                icon: <ClipboardCheck size={28} className="text-primary" />,
                 title: "We review it manually",
                 desc: "Senior consultants assess your eligibility using our Search + AI visibility framework.",
               },
               {
                 num: "03",
-                icon: <FileText size={22} className="text-primary" />,
+                icon: <FileText size={28} className="text-primary" />,
                 title: "You receive a clear assessment",
                 desc: "An honest, prioritised report of what's blocking visibility and what needs attention.",
               },
             ].map((s) => (
               <ScrollReveal key={s.num}>
                 <div className="text-center">
-                  <div className="flex items-center justify-center mb-4">{s.icon}</div>
-                  <p className="text-primary/15 font-extrabold text-4xl mb-3">{s.num}</p>
-                  <h3 className="text-foreground font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-body text-base leading-relaxed">{s.desc}</p>
+                  <div className="flex items-center justify-center mb-5">{s.icon}</div>
+                  <h3 className="text-foreground font-semibold text-xl mb-2">{s.title}</h3>
+                  <p className="text-muted-foreground text-[15px] leading-relaxed mb-3">{s.desc}</p>
+                  <p className="text-primary/40 font-extrabold text-2xl">{s.num}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -339,13 +343,13 @@ const Index = () => {
       <SectionDivider />
 
       {/* ───── 4. WHAT YOU'LL RECEIVE ───── */}
-      <Section alt>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <Section alt className="border-t border-white/5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
-            <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-6">
+            <h2 className="text-foreground font-bold text-3xl mb-4">
               Here's what you'll receive
             </h2>
-            <ul className="space-y-3 mb-6">
+            <ul className="space-y-4 mb-6">
               {[
                 "What is blocking eligibility",
                 "What is limiting search and AI visibility",
@@ -374,10 +378,10 @@ const Index = () => {
       <SectionDivider />
 
       {/* ───── 5. WHAT THIS IS / ISN'T ───── */}
-      <Section>
+      <Section bg="bg-problem">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-3">
+          <div className="text-center mb-14">
+            <h2 className="text-foreground font-bold text-3xl mb-4">
               A visibility eligibility check — not a marketing report
             </h2>
             <p className="text-body text-base max-w-2xl mx-auto">
@@ -431,28 +435,31 @@ const Index = () => {
       <SectionDivider />
 
       {/* ───── 6. TESTIMONIALS — stacked, larger quotes ───── */}
-      <section className="py-24 md:py-32 noise-overlay" style={{ background: "linear-gradient(180deg, hsl(240 20% 6%) 0%, hsl(240 25% 9%) 100%)" }}>
+      <section className="py-24 md:py-32 noise-overlay bg-testimonials">
         <div className="max-w-3xl mx-auto px-6">
           <ScrollReveal>
-            <h2 className="text-foreground font-bold text-2xl md:text-3xl text-center mb-14">
+            <h2 className="text-foreground font-bold text-3xl text-center mb-4">
               What our clients say
             </h2>
+            <p className="text-body text-base text-center mb-14 max-w-xl mx-auto">
+              Hear from teams who've used the audit to uncover blind spots.
+            </p>
           </ScrollReveal>
           <div className="space-y-8">
             {testimonials.map((t) => (
               <ScrollReveal key={t.name}>
-                <div className="card-premium rounded-2xl p-8 md:p-10 border-l-2 border-l-primary">
+                <div className="bg-white/[0.03] border border-white/5 rounded-xl p-8 md:p-10 border-l-2 border-l-primary">
                   <Quote size={28} className="text-primary/30 mb-5" />
-                  <p className="text-body text-xl md:text-[1.35rem] leading-relaxed mb-8">
+                  <p className="text-body text-[1.15rem] md:text-xl leading-relaxed mb-8">
                     "{t.quote}"
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-lg">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center text-primary font-bold text-xl">
                       {t.name[0]}
                     </div>
                     <div>
                       <p className="text-foreground font-semibold text-sm">{t.name}</p>
-                      <p className="text-caption text-xs">{t.title}, {t.company}</p>
+                      <p className="text-muted-foreground text-sm">{t.title}, {t.company}</p>
                     </div>
                   </div>
                 </div>
@@ -463,11 +470,11 @@ const Index = () => {
       </section>
 
       {/* ───── 7. FINAL CTA with full form ───── */}
-      <section id="audit-form" className="py-24 md:py-32 bg-cta-gradient noise-overlay">
+      <section id="audit-form" className="py-28 md:py-36 bg-cta-gradient noise-overlay">
         <div className="max-w-xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-3">
+              <h2 className="text-foreground font-bold text-3xl mb-4">
                 Ready to check your AI visibility?
               </h2>
               <p className="text-body text-base">
