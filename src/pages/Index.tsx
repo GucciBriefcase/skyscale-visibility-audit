@@ -291,7 +291,7 @@ const Index = () => {
           <ScrollReveal>
             <div className="text-center max-w-4xl mx-auto mb-10">
               <Pill>FREE AI VISIBILITY AUDIT</Pill>
-              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-3xl mx-auto">
+              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-4xl mx-auto">
                 See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
               </h1>
               <p className="text-muted-foreground text-base max-w-2xl mx-auto">
@@ -302,7 +302,7 @@ const Index = () => {
 
           {/* Trust stats */}
           <ScrollReveal>
-            <CardWrap className="max-w-lg mx-auto mb-8 p-8">
+            <CardWrap className="max-w-lg mx-auto mb-8 px-10 py-6">
               <div className="flex items-center justify-around">
                 {[
                   { val: "100+", label: "Audits delivered" },
@@ -326,7 +326,7 @@ const Index = () => {
 
           {/* Hero CTA — URL input */}
           <ScrollReveal>
-            <div className="max-w-xl mx-auto">
+            <div className="max-w-xl mx-auto mt-8">
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="url"
@@ -433,11 +433,11 @@ const Index = () => {
           </ScrollReveal>
           <ScrollReveal>
             <CardWrap className="rounded-2xl p-8 md:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-3">
                   {reportModules.map((mod) => (
                     <div key={mod.title} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
                         {mod.icon}
                       </span>
                       <div>
@@ -528,7 +528,7 @@ const Index = () => {
                 </p>
               </div>
             </ScrollReveal>
-            <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map((t) => (
                 <ScrollReveal key={t.name}>
                   <CardWrap className="p-8 h-full flex flex-col">
@@ -539,7 +539,7 @@ const Index = () => {
                       {t.quote.split(t.highlight)[1]}"
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
                         {t.name[0]}
                       </div>
                       <div>
