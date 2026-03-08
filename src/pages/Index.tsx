@@ -235,23 +235,12 @@ const Index = () => {
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-14">
             <Pill>FREE AI VISIBILITY AUDIT</Pill>
-            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-8">
-              See whether your brand is eligible to appear in <span className="text-primary">Google</span> and <span className="text-primary">AI&#8209;generated</span> answers
+            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-6">
+              See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
             </h1>
-            <ul className="space-y-2 text-muted-foreground text-base max-w-2xl mx-auto text-left inline-block">
-              <li className="flex items-start gap-3">
-                <TealCheck />
-                Manual, senior reviewed assessment
-              </li>
-              <li className="flex items-start gap-3">
-                <TealCheck />
-                Best suited for businesses where online visibility directly affects revenue
-              </li>
-              <li className="flex items-start gap-3">
-                <TealCheck />
-                Limited availability due to review capacity
-              </li>
-            </ul>
+            <p className="text-muted-foreground text-base max-w-2xl mx-auto">
+              A free, human-reviewed assessment of your brand's visibility across search and AI.
+            </p>
           </div>
         </ScrollReveal>
 
