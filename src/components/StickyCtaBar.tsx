@@ -16,7 +16,7 @@ const StickyCtaBar: React.FC = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-between">
-        <span className="text-primary-foreground font-medium text-sm">
+        <span className="text-primary-foreground font-semibold text-sm tracking-tight">
           Free audit — takes 30 seconds
         </span>
         <a
