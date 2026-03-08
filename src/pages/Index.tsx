@@ -438,7 +438,7 @@ const Index = () => {
           <ScrollReveal>
             <CardWrap className="p-8 h-full">
               <h3 className="text-foreground font-bold text-lg mb-5">What this audit is</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {[
                   "Human-reviewed, no automated tools",
                   "Focused on search + AI answer systems",
@@ -446,8 +446,8 @@ const Index = () => {
                   "Identifies real blockers, not cosmetic issues",
                   "Honest, prioritised, and decision-ready",
                 ].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm">
-                    <TealCheck />
+                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
+                    <span className="mt-0.5"><TealCheck /></span>
                     {t}
                   </li>
                 ))}
