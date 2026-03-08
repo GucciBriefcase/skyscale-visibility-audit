@@ -1,5 +1,5 @@
 import React from "react";
-import { Sparkles, X, AlertTriangle } from "lucide-react";
+import { Sparkles, AlertTriangle } from "lucide-react";
 
 const AIResponseMockup: React.FC = () => (
   <div className="bg-[hsl(0_0%_5%)] border border-border rounded-2xl overflow-hidden shadow-[0_0_24px_rgba(0,229,200,0.12)]">
@@ -25,11 +25,11 @@ const AIResponseMockup: React.FC = () => (
           Here are some top digital marketing agencies in Melbourne:
         </p>
 
-        <div className="space-y-2.5">
+        <div className="space-y-3">
           {[
-            { name: "Rocket Digital", desc: "Performance marketing and paid media" },
-            { name: "Clearpath SEO", desc: "Enterprise organic search strategy" },
-            { name: "BrightEdge Co.", desc: "AI-ready content architecture" },
+            { name: "Competitor A", desc: "Full-service digital strategy" },
+            { name: "Competitor B", desc: "Specialist PPC management" },
+            { name: "Competitor C", desc: "SEO and content agency" },
           ].map((item, i) => (
             <div key={item.name} className="flex items-start gap-3">
               <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold mt-0.5">
@@ -43,12 +43,12 @@ const AIResponseMockup: React.FC = () => (
           ))}
         </div>
 
-        {/* Warning bar */}
-        <div className="mt-4 pt-4 border-t border-border">
-          <div className="bg-destructive/10 border border-destructive/30 rounded-lg px-4 py-3 animate-pulse-glow flex items-center gap-2.5">
-            <AlertTriangle size={16} className="text-destructive flex-shrink-0" />
-            <p className="text-destructive text-sm font-medium">
-              Your Brand — Not Mentioned
+        {/* Warning bar — the punchline */}
+        <div className="mt-5 pt-4 border-t border-border">
+          <div className="bg-destructive/10 border border-destructive/30 rounded-lg px-4 py-3.5 animate-pulse-glow flex items-center gap-2.5">
+            <AlertTriangle size={18} className="text-destructive/70 flex-shrink-0" />
+            <p className="text-destructive/70 text-base md:text-lg font-semibold">
+              ❌ Your Brand — Not Mentioned
             </p>
           </div>
           <p className="text-muted-foreground text-xs mt-2 ml-1">
