@@ -1,8 +1,7 @@
-import React from "react";
-import { Check, X, Shield, Zap, Search, Eye, Quote } from "lucide-react";
+import React, { useState } from "react";
+import { Check, X, Quote, FileText, ClipboardCheck, Send, ChevronDown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AuditForm from "@/components/AuditForm";
 import CTAButton from "@/components/CTAButton";
 import ScrollReveal from "@/components/ScrollReveal";
 import StickyCtaBar from "@/components/StickyCtaBar";
@@ -32,7 +31,7 @@ const Section: React.FC<{
 }> = ({ children, className = "", id, alt }) => (
   <section
     id={id}
-    className={`py-20 md:py-28 noise-overlay ${alt ? "bg-alt" : "bg-background"} ${className}`}
+    className={`py-24 md:py-32 noise-overlay ${alt ? "bg-alt" : "bg-background"} ${className}`}
   >
     <div className="max-w-6xl mx-auto px-6">{children}</div>
   </section>
@@ -59,13 +58,144 @@ const testimonials = [
   },
 ];
 
-/* ── What we check signals ──────────────────── */
-const signals = [
-  { icon: <Shield size={20} />, label: "Crawl & index health" },
-  { icon: <Eye size={20} />, label: "Entity & brand clarity" },
-  { icon: <Search size={20} />, label: "Search intent alignment" },
-  { icon: <Zap size={20} />, label: "AI citation readiness" },
-];
+/* ── Hero URL input ─────────────────────────── */
+const HeroForm: React.FC = () => {
+  const [url, setUrl] = useState("");
+  return (
+    <div className="max-w-lg mx-auto">
+      <div className="flex flex-col sm:flex-row gap-3">
+        <input
+          type="url"
+          placeholder="Enter your website URL"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          className="flex-1 bg-card border border-border rounded-full px-5 py-3.5 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+        />
+        <CTAButton size="md" onClick={() => {
+          const el = document.getElementById("audit-form");
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }}>
+          Get My Free Audit →
+        </CTAButton>
+      </div>
+      <p className="text-caption text-xs text-center mt-3">
+        No credit card · Delivered in 48 hours · 100% human-reviewed
+      </p>
+    </div>
+  );
+};
+
+/* ── Bottom CTA Form ────────────────────────── */
+const BottomForm: React.FC = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const [showOptional, setShowOptional] = useState(false);
+  const [form, setForm] = useState({
+    website: "",
+    email: "",
+    industry: "",
+    fullName: "",
+    company: "",
+    prompted: "",
+  });
+  const update = (key: string, value: string) => setForm((f) => ({ ...f, [key]: value }));
+
+  const inputCls =
+    "w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition";
+  const labelCls = "block text-sm font-semibold text-foreground mb-1.5";
+
+  if (submitted) {
+    return (
+      <div className="card-premium rounded-2xl p-8 text-center">
+        <div className="flex flex-col items-center justify-center py-8 animate-fade-in">
+          <Check size={48} className="text-primary mb-4" />
+          <p className="text-foreground font-bold text-xl mb-2">Thank you!</p>
+          <p className="text-body text-sm">
+            Your submission has been received. We'll review it and be in touch within 48 hours.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const industries = [
+    "SaaS / Technology",
+    "Professional Services",
+    "E-commerce / Retail",
+    "Healthcare",
+    "Finance / Fintech",
+    "Education",
+    "Real Estate",
+    "Other",
+  ];
+
+  return (
+    <div className="card-premium rounded-2xl p-8">
+      <h3 className="text-foreground font-bold text-xl mb-1">Request Your Free Audit</h3>
+      <p className="text-body text-sm mb-6">Takes ~2 minutes. Each request is manually reviewed.</p>
+
+      <div className="space-y-4">
+        <div>
+          <label className={labelCls}>Website URL *</label>
+          <input className={inputCls} placeholder="https://example.com" value={form.website} onChange={(e) => update("website", e.target.value)} />
+        </div>
+        <div>
+          <label className={labelCls}>Work Email *</label>
+          <input className={inputCls} type="email" placeholder="you@company.com" value={form.email} onChange={(e) => update("email", e.target.value)} />
+        </div>
+        <div>
+          <label className={labelCls}>Industry *</label>
+          <div className="relative">
+            <select className={`${inputCls} appearance-none pr-10`} value={form.industry} onChange={(e) => update("industry", e.target.value)}>
+              <option value="">Select your industry…</option>
+              {industries.map((o) => (
+                <option key={o} value={o}>{o}</option>
+              ))}
+            </select>
+            <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+          </div>
+        </div>
+      </div>
+
+      {/* Optional fields toggle */}
+      <button
+        type="button"
+        onClick={() => setShowOptional(!showOptional)}
+        className="text-primary text-sm font-medium mt-5 hover:underline transition flex items-center gap-1"
+      >
+        <ChevronDown size={14} className={`transition-transform ${showOptional ? "rotate-180" : ""}`} />
+        Optional: Help us personalise your audit
+      </button>
+
+      {showOptional && (
+        <div className="space-y-4 mt-4 animate-fade-in">
+          <div>
+            <label className={labelCls}>Full Name</label>
+            <input className={inputCls} value={form.fullName} onChange={(e) => update("fullName", e.target.value)} />
+          </div>
+          <div>
+            <label className={labelCls}>Company Name</label>
+            <input className={inputCls} value={form.company} onChange={(e) => update("company", e.target.value)} />
+          </div>
+          <div>
+            <label className={labelCls}>What prompted you to request this audit?</label>
+            <textarea className={`${inputCls} resize-none`} rows={3} value={form.prompted} onChange={(e) => update("prompted", e.target.value)} />
+          </div>
+        </div>
+      )}
+
+      <div className="mt-6">
+        <CTAButton size="lg" className="w-full" onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
+          Get My Free Audit →
+        </CTAButton>
+      </div>
+
+      <div className="flex items-center justify-center gap-1.5 mt-4 text-muted-foreground">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
+        <span className="text-xs">We never store your data</span>
+      </div>
+    </div>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    PAGE
@@ -78,42 +208,25 @@ const Index = () => {
       <StickyCtaBar />
       <WhatsAppButton />
 
-      {/* ───── 1. HERO ───── */}
-      <Section id="hero" className="pt-12 md:pt-20">
+      {/* ───── 1. HERO — spacious, focused ───── */}
+      <Section id="hero" className="pt-16 md:pt-24">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-5">
               Free AI & Search Visibility Audit
             </p>
-            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-5">
+            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-6">
               See whether your brand is eligible to appear in AI&#8209;generated answers
             </h1>
-            <p className="text-body text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+            <p className="text-body text-lg leading-relaxed max-w-2xl mx-auto">
               We analyze <span className="text-foreground font-semibold">14 signals</span> AI systems use to decide whether to cite your brand. This audit tells you exactly where you stand.
             </p>
-
-            {/* Logo bar */}
-            <div className="mb-8">
-              <p className="text-caption text-xs uppercase tracking-wider mb-4">
-                Teams from these companies have run audits
-              </p>
-              <div className="flex items-center justify-center gap-8 flex-wrap">
-                {logos.map((name) => (
-                  <span
-                    key={name}
-                    className="text-muted-foreground/40 font-bold text-lg tracking-wider"
-                  >
-                    {name}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </ScrollReveal>
 
-        {/* Stat counter */}
+        {/* Trust stats */}
         <ScrollReveal>
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-16">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-12">
             {[
               { val: "2,400+", label: "Audits completed" },
               { val: "48hr", label: "Turnaround" },
@@ -127,61 +240,140 @@ const Index = () => {
           </div>
         </ScrollReveal>
 
-        {/* What we check teaser */}
+        {/* Logo bar */}
         <ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-            {signals.map((s) => (
-              <div
-                key={s.label}
-                className="card-premium rounded-xl p-5 text-center"
-              >
-                <div className="text-primary mx-auto mb-2">{s.icon}</div>
-                <p className="text-body text-sm font-medium">{s.label}</p>
-              </div>
-            ))}
+          <div className="mb-14">
+            <p className="text-caption text-xs uppercase tracking-wider mb-4 text-center">
+              Teams from these companies have run audits
+            </p>
+            <div className="flex items-center justify-center gap-8 flex-wrap">
+              {logos.map((name) => (
+                <span key={name} className="text-muted-foreground/40 font-bold text-lg tracking-wider">
+                  {name}
+                </span>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
 
-        {/* Audit form */}
-        <div className="max-w-xl mx-auto">
-          <ScrollReveal>
-            <AuditForm />
-          </ScrollReveal>
-        </div>
+        {/* Single-field CTA */}
+        <ScrollReveal>
+          <HeroForm />
+        </ScrollReveal>
       </Section>
 
       <SectionDivider />
 
-      {/* ───── 2. INVISIBLE ───── */}
-      <Section id="invisible" alt>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* ───── 2. PROBLEM — slightly lighter bg ───── */}
+      <section id="invisible" className="py-24 md:py-32 noise-overlay" style={{ background: "hsl(240 25% 8%)" }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <ScrollReveal>
+              <img src={invisibleImg} alt="AI visibility data" className="rounded-xl w-full object-cover" />
+            </ScrollReveal>
+            <ScrollReveal>
+              <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-5">
+                Most businesses are invisible in AI answers
+              </h2>
+              <p className="text-body text-base leading-relaxed mb-4">
+                AI doesn't rank the way search engines do. It synthesises answers from sources it considers clear, credible, and consistent.
+              </p>
+              <p className="text-body text-base leading-relaxed mb-4">
+                If your brand isn't structured in a way that AI systems can confidently extract and reference, you won't be included — no matter how good your product or service is.
+              </p>
+              <p className="text-body text-base leading-relaxed">
+                This isn't a penalty. It's silent exclusion. And most businesses don't even realise it's happening.
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ───── 3. HOW IT WORKS — elevated card container ───── */}
+      <Section id="how-it-works">
+        <ScrollReveal>
+          <h2 className="text-foreground font-bold text-2xl md:text-3xl text-center mb-16">
+            How it works
+          </h2>
+        </ScrollReveal>
+        <div className="card-premium rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                num: "01",
+                icon: <Send size={22} className="text-primary" />,
+                title: "You submit your website",
+                desc: "Fill out the short form with your website and a few details about your business.",
+              },
+              {
+                num: "02",
+                icon: <ClipboardCheck size={22} className="text-primary" />,
+                title: "We review it manually",
+                desc: "Senior consultants assess your eligibility using our Search + AI visibility framework.",
+              },
+              {
+                num: "03",
+                icon: <FileText size={22} className="text-primary" />,
+                title: "You receive a clear assessment",
+                desc: "An honest, prioritised report of what's blocking visibility and what needs attention.",
+              },
+            ].map((s) => (
+              <ScrollReveal key={s.num}>
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-4">{s.icon}</div>
+                  <p className="text-primary/15 font-extrabold text-4xl mb-3">{s.num}</p>
+                  <h3 className="text-foreground font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-body text-base leading-relaxed">{s.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+        <p className="text-caption text-sm font-medium text-center mt-10">
+          No obligation. No pressure.
+        </p>
+      </Section>
+
+      <SectionDivider />
+
+      {/* ───── 4. WHAT YOU'LL RECEIVE ───── */}
+      <Section alt>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <ScrollReveal>
-            <img
-              src={invisibleImg}
-              alt="AI visibility data"
-              className="rounded-xl w-full object-cover"
-            />
-          </ScrollReveal>
-          <ScrollReveal>
-            <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-5">
-              Most businesses are invisible in AI answers
+            <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-6">
+              Here's what you'll receive
             </h2>
-            <p className="text-body text-base leading-relaxed mb-4">
-              AI doesn't rank the way search engines do. It synthesises answers from sources it considers clear, credible, and consistent.
-            </p>
-            <p className="text-body text-base leading-relaxed mb-4">
-              If your brand isn't structured in a way that AI systems can confidently extract and reference, you won't be included — no matter how good your product or service is.
-            </p>
+            <ul className="space-y-3 mb-6">
+              {[
+                "What is blocking eligibility",
+                "What is limiting search and AI visibility",
+                "What should be fixed, merged, or removed",
+                "What matters now versus later",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3 text-body text-base">
+                  <TealCheck />
+                  {t}
+                </li>
+              ))}
+            </ul>
             <p className="text-body text-base leading-relaxed">
-              This isn't a penalty. It's silent exclusion. And most businesses don't even realise it's happening.
+              You will not receive a checklist — only a clear assessment of what's limiting visibility and what actions require a decision. No fluff. No padding.
             </p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="relative">
+              <img src={sampleAuditImg} alt="Sample audit report preview" className="rounded-xl w-full object-cover shadow-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent rounded-xl" />
+            </div>
           </ScrollReveal>
         </div>
       </Section>
 
       <SectionDivider />
 
-      {/* ───── 3. WHAT THIS IS / ISN'T (consolidated) ───── */}
+      {/* ───── 5. WHAT THIS IS / ISN'T ───── */}
       <Section>
         <ScrollReveal>
           <div className="text-center mb-12">
@@ -229,7 +421,7 @@ const Index = () => {
                 ))}
               </ul>
               <p className="text-caption text-sm italic mt-5">
-                If you're looking for promises or exploits, this isn't for you.
+                This audit assesses eligibility and clarity — not outcomes. If you're looking for promises, this isn't for you.
               </p>
             </div>
           </ScrollReveal>
@@ -238,131 +430,40 @@ const Index = () => {
 
       <SectionDivider />
 
-      {/* ───── 4. TESTIMONIALS ───── */}
-      <Section alt>
-        <ScrollReveal>
-          <h2 className="text-foreground font-bold text-2xl md:text-3xl text-center mb-12">
-            What our clients say
-          </h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {testimonials.map((t) => (
-            <ScrollReveal key={t.name}>
-              <div className="card-premium rounded-xl p-8 border-l-2 border-l-primary h-full flex flex-col">
-                <Quote size={24} className="text-primary/30 mb-4" />
-                <p className="text-body text-base leading-relaxed flex-1 mb-6">
-                  "{t.quote}"
-                </p>
-                <div>
-                  <p className="text-foreground font-semibold text-sm">{t.name}</p>
-                  <p className="text-caption text-xs">
-                    {t.title}, {t.company}
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </Section>
-
-      <SectionDivider />
-
-      {/* ───── 5. SAMPLE AUDIT PREVIEW ───── */}
-      <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* ───── 6. TESTIMONIALS — stacked, larger quotes ───── */}
+      <section className="py-24 md:py-32 noise-overlay" style={{ background: "linear-gradient(180deg, hsl(240 20% 6%) 0%, hsl(240 25% 9%) 100%)" }}>
+        <div className="max-w-3xl mx-auto px-6">
           <ScrollReveal>
-            <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-5">
-              Here's what you'll receive
+            <h2 className="text-foreground font-bold text-2xl md:text-3xl text-center mb-14">
+              What our clients say
             </h2>
-            <ul className="space-y-3 mb-6">
-              {[
-                "What is blocking eligibility",
-                "What is limiting search and AI visibility",
-                "What should be fixed, merged, or removed",
-                "What matters now versus later",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3 text-body text-base">
-                  <TealCheck />
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <p className="text-body text-base leading-relaxed">
-              You will not receive a checklist — only a clear assessment of what's limiting visibility and what actions require a decision. No fluff. No padding.
-            </p>
           </ScrollReveal>
-          <ScrollReveal>
-            <div className="relative">
-              <img
-                src={sampleAuditImg}
-                alt="Sample audit report preview"
-                className="rounded-xl w-full object-cover shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent rounded-xl" />
-            </div>
-          </ScrollReveal>
-        </div>
-      </Section>
-
-      <SectionDivider />
-
-      {/* ───── 6. HOW IT WORKS ───── */}
-      <Section id="how-it-works" alt>
-        <ScrollReveal>
-          <h2 className="text-foreground font-bold text-2xl md:text-3xl text-center mb-14">
-            How it works
-          </h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
-          {[
-            {
-              num: "01",
-              title: "You submit your website",
-              desc: "Fill out the short form with your website and a few details about your business.",
-            },
-            {
-              num: "02",
-              title: "We review it manually",
-              desc: "Senior consultants assess your eligibility using our Search + AI visibility framework.",
-            },
-            {
-              num: "03",
-              title: "You receive a clear assessment",
-              desc: "An honest, prioritised report of what's blocking visibility and what needs attention.",
-            },
-          ].map((s) => (
-            <ScrollReveal key={s.num}>
-              <div className="text-center">
-                <p className="text-primary/20 font-extrabold text-6xl md:text-7xl mb-4">
-                  {s.num}
-                </p>
-                <h3 className="text-foreground font-bold text-lg mb-2">{s.title}</h3>
-                <p className="text-body text-sm">{s.desc}</p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-        <p className="text-caption text-sm font-medium text-center mt-10">
-          No obligation. No pressure.
-        </p>
-      </Section>
-
-      <SectionDivider />
-
-      {/* ───── 7. IMPORTANT NOTE ───── */}
-      <Section>
-        <ScrollReveal>
-          <div className="card-premium rounded-xl p-10 max-w-3xl mx-auto text-center">
-            <h2 className="text-foreground font-bold text-xl mb-4">Important note</h2>
-            <p className="text-body text-base leading-relaxed">
-              This audit assesses eligibility and clarity — not outcomes. Search engines and AI systems are probabilistic, not controllable. Our role is to remove ambiguity and blockers so your brand can compete fairly in both search results and AI-generated answers.
-            </p>
+          <div className="space-y-8">
+            {testimonials.map((t) => (
+              <ScrollReveal key={t.name}>
+                <div className="card-premium rounded-2xl p-8 md:p-10 border-l-2 border-l-primary">
+                  <Quote size={28} className="text-primary/30 mb-5" />
+                  <p className="text-body text-xl md:text-[1.35rem] leading-relaxed mb-8">
+                    "{t.quote}"
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-lg">
+                      {t.name[0]}
+                    </div>
+                    <div>
+                      <p className="text-foreground font-semibold text-sm">{t.name}</p>
+                      <p className="text-caption text-xs">{t.title}, {t.company}</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </ScrollReveal>
-      </Section>
+        </div>
+      </section>
 
-      {/* ───── 8. FINAL CTA ───── */}
-      <section className="py-20 md:py-28 bg-cta-gradient noise-overlay">
+      {/* ───── 7. FINAL CTA with full form ───── */}
+      <section id="audit-form" className="py-24 md:py-32 bg-cta-gradient noise-overlay">
         <div className="max-w-xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
@@ -373,15 +474,7 @@ const Index = () => {
                 Limited availability. Each audit is manually reviewed by senior consultants.
               </p>
             </div>
-            <AuditForm />
-            <div className="text-center mt-8">
-              <CTAButton size="lg" href="#audit-form">
-                Get My Free Audit →
-              </CTAButton>
-              <p className="text-caption text-xs mt-4">
-                Takes ~2 minutes · Manually reviewed · No credit card
-              </p>
-            </div>
+            <BottomForm />
           </ScrollReveal>
         </div>
       </section>
