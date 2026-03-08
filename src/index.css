@@ -74,7 +74,7 @@
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
-
+  .text-body {
     color: hsl(var(--body-text));
   }
   .text-caption {
