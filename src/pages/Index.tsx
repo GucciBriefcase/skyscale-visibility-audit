@@ -343,13 +343,13 @@ const Index = () => {
       <SectionDivider />
 
       {/* ───── 4. WHAT YOU'LL RECEIVE ───── */}
-      <Section alt>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <Section alt className="border-t border-white/5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
-            <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-6">
+            <h2 className="text-foreground font-bold text-3xl mb-4">
               Here's what you'll receive
             </h2>
-            <ul className="space-y-3 mb-6">
+            <ul className="space-y-4 mb-6">
               {[
                 "What is blocking eligibility",
                 "What is limiting search and AI visibility",
