@@ -94,7 +94,7 @@ const MidPageCTA: React.FC = () => {
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-1 bg-secondary border border-border rounded-full px-5 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-1 bg-white/[0.06] border border-white/[0.10] rounded-full px-5 py-3.5 h-12 text-foreground text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
         <CTAButton size="md" className="h-12 px-8 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
           Get My Free Audit →
@@ -122,8 +122,8 @@ const BottomForm: React.FC = () => {
   const update = (key: string, value: string) => setForm((f) => ({ ...f, [key]: value }));
 
   const inputCls =
-    "w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition";
-  const labelCls = "block text-sm font-semibold text-foreground mb-1.5";
+    "w-full bg-white/[0.05] border border-white/[0.08] rounded-lg px-4 py-3 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition";
+  const labelCls = "block text-sm font-medium text-gray-300 mb-1.5";
 
   if (submitted) {
     return (
@@ -151,7 +151,7 @@ const BottomForm: React.FC = () => {
   ];
 
   return (
-    <CardWrap className="rounded-2xl p-8">
+    <CardWrap className="rounded-2xl p-8 md:p-10">
       <h3 className="text-foreground font-bold text-xl mb-1">Request Your Free Audit</h3>
       <p className="text-muted-foreground text-sm mb-6">Takes ~2 minutes. Each request is manually reviewed.</p>
 
@@ -349,9 +349,9 @@ const Index = () => {
             },
           ].map((s) => (
             <ScrollReveal key={s.num}>
-              <CardWrap className="p-8 h-full min-h-[240px] flex flex-col relative">
+              <CardWrap className="p-8 h-full min-h-[240px] flex flex-col items-start justify-start relative">
                 <span className="absolute top-4 right-4 text-xs font-bold text-primary/30">{s.num}</span>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
                   {s.icon}
                 </div>
                 <h3 className="text-foreground font-semibold text-lg mb-3 text-left">{s.title}</h3>
@@ -482,16 +482,16 @@ const Index = () => {
               <ScrollReveal key={t.name}>
                 <CardWrap className="p-8 h-full flex flex-col">
                   <Stars />
-                  <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-1">
+                  <p className="text-muted-foreground text-base font-medium leading-relaxed mb-8 flex-1">
                     "{t.quote}"
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+                    <div className="w-11 h-11 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
                       {t.name[0]}
                     </div>
                     <div>
-                      <p className="text-foreground font-semibold text-base">{t.name}</p>
-                      <p className="text-gray-400 text-sm">{t.title}, {t.company}</p>
+                      <p className="text-foreground font-semibold text-sm">{t.name}</p>
+                      <p className="text-gray-400 text-xs">{t.title}, {t.company}</p>
                     </div>
                   </div>
                 </CardWrap>
