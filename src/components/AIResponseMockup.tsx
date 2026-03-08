@@ -45,9 +45,9 @@ const AIResponseMockup: React.FC = () => (
 
         {/* Warning bar */}
         <div className="mt-4 pt-4 border-t border-border">
-          <div className="bg-primary/5 border border-primary/20 rounded-lg px-4 py-3 animate-pulse-glow flex items-center gap-2.5">
-            <AlertTriangle size={16} className="text-primary flex-shrink-0" />
-            <p className="text-primary text-sm font-medium">
+          <div className="bg-destructive/10 border border-destructive/30 rounded-lg px-4 py-3 animate-pulse-glow flex items-center gap-2.5">
+            <AlertTriangle size={16} className="text-destructive flex-shrink-0" />
+            <p className="text-destructive text-sm font-medium">
               Your Brand — Not Mentioned
             </p>
           </div>
