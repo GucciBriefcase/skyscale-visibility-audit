@@ -3,11 +3,10 @@ import skyscaleLogo from "@/assets/skyscale-logo.png";
 import CTAButton from "./CTAButton";
 
 const navLinks = [
-  { label: "Visibility Audit", href: "#hero", active: true },
-  { label: "Services", href: "#pillars" },
+  { label: "Visibility Audit", href: "#hero" },
+  { label: "How It Works", href: "#how-it-works" },
   { label: "Insights", href: "#invisible" },
-  { label: "About Us", href: "#how-it-works" },
-  { label: "Contact Us", href: "#footer" },
+  { label: "Contact", href: "#footer" },
 ];
 
 const Header: React.FC = () => {
@@ -22,8 +21,10 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-background transition-all duration-300 ${
-        scrolled ? "backdrop-blur-md border-b border-border" : "border-b border-transparent"
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/90 backdrop-blur-md border-b border-border"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
@@ -31,15 +32,12 @@ const Header: React.FC = () => {
           <img src={skyscaleLogo} alt="SkyScale" className="h-10" />
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className={`text-sm font-medium transition-colors duration-200 hover:text-foreground ${
-                l.active ? "text-foreground" : "text-muted-foreground"
-              }`}
+              className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               {l.label}
             </a>
@@ -47,11 +45,10 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <CTAButton size="sm" href="https://api.whatsapp.com/send/?phone=61468881846">
-            Chat on WhatsApp
+          <CTAButton size="sm" href="#audit-form">
+            Get Free Audit
           </CTAButton>
 
-          {/* Mobile hamburger */}
           <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               {mobileOpen ? (
@@ -68,7 +65,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile slide-in drawer */}
       <div
         className={`md:hidden fixed inset-0 top-16 z-40 transition-transform duration-300 ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
@@ -81,9 +77,7 @@ const Header: React.FC = () => {
               key={l.label}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              className={`block text-sm font-medium transition-colors duration-200 hover:text-foreground ${
-                l.active ? "text-foreground" : "text-muted-foreground"
-              }`}
+              className="block text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               {l.label}
             </a>
