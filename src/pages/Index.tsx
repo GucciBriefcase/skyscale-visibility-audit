@@ -291,7 +291,7 @@ const Index = () => {
           <ScrollReveal>
             <div className="text-center max-w-4xl mx-auto mb-10">
               <Pill>FREE AI VISIBILITY AUDIT</Pill>
-              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-3xl mx-auto">
+              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-4xl mx-auto">
                 See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
               </h1>
               <p className="text-muted-foreground text-base max-w-2xl mx-auto">
@@ -302,7 +302,7 @@ const Index = () => {
 
           {/* Trust stats */}
           <ScrollReveal>
-            <CardWrap className="max-w-lg mx-auto mb-8 p-8">
+            <CardWrap className="max-w-lg mx-auto mb-8 px-10 py-6">
               <div className="flex items-center justify-around">
                 {[
                   { val: "100+", label: "Audits delivered" },
@@ -326,7 +326,7 @@ const Index = () => {
 
           {/* Hero CTA — URL input */}
           <ScrollReveal>
-            <div className="max-w-xl mx-auto">
+            <div className="max-w-xl mx-auto mt-8">
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="url"
