@@ -25,7 +25,7 @@ const AIResponseMockup: React.FC = () => (
           Here are some top digital marketing agencies in Melbourne:
         </p>
 
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {[
             { name: "Competitor A", desc: "Full-service digital strategy" },
             { name: "Competitor B", desc: "Specialist PPC management" },
@@ -48,7 +48,7 @@ const AIResponseMockup: React.FC = () => (
           <div className="bg-destructive/10 border border-destructive/30 rounded-lg px-4 py-3.5 animate-pulse-glow flex items-center gap-2.5">
             <AlertTriangle size={18} className="text-destructive/70 flex-shrink-0" />
             <p className="text-destructive/70 text-base md:text-lg font-semibold">
-              ❌ Your Brand — Not Mentioned
+              Your Brand — Not Mentioned
             </p>
           </div>
           <p className="text-muted-foreground text-xs mt-2 ml-1">
