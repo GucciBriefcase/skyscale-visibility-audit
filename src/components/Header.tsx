@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import skyscaleLogo from "@/assets/skyscale-logo.png";
 
 const navLinks = [
-  { label: "Visibility Audit", href: "#audit-form" },
-  { label: "Services", href: "#" },
-  { label: "Case Studies", href: "#" },
-  { label: "Insights", href: "#" },
-  { label: "About Us", href: "#" },
-  { label: "Contact Us", href: "#footer" },
+  { label: "Visibility Audit", href: "#audit-form", active: true },
+  { label: "Services", href: "#", active: false },
+  { label: "Case Studies", href: "#", active: false },
+  { label: "Insights", href: "#", active: false },
+  { label: "About Us", href: "#", active: false },
+  { label: "Contact Us", href: "#footer", active: false },
 ];
 
 const WHATSAPP_URL = "https://wa.me/61468881846";
