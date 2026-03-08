@@ -90,16 +90,16 @@ const scrollTo = (id: string) => {
 const MidPageCTA: React.FC = () => {
   const [url, setUrl] = useState("");
   return (
-    <div className="max-w-[550px] mx-auto mt-12">
+    <div className="max-w-[550px] mx-auto mt-12 mb-2">
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="url"
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-1 bg-secondary border border-border rounded-full px-5 py-3 h-[48px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-1 bg-secondary border border-border rounded-full px-5 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
-        <CTAButton size="md" className="h-[48px]" onClick={() => scrollTo("audit-form")}>
+        <CTAButton size="md" className="h-12 px-8 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
           Get My Free Audit →
         </CTAButton>
       </div>
@@ -276,32 +276,22 @@ const Index = () => {
           </CardWrap>
         </ScrollReveal>
 
-        {/* Logo bar */}
         <ScrollReveal>
-          <div className="mb-14">
-            <p className="text-muted-foreground text-xs uppercase tracking-wider mb-4 text-center">
-              Teams from these companies have run audits
-            </p>
-            <div className="flex items-center justify-center gap-8 flex-wrap">
-              {logos.map((name) => (
-                <span key={name} className="text-muted-foreground/40 font-bold text-lg tracking-wider">
-                  {name}
-                </span>
-              ))}
-            </div>
-          </div>
+          <p className="text-muted-foreground text-sm text-center mb-14">
+            Trusted by growing businesses · Reviewed manually by our team · Based in Australia
+          </p>
         </ScrollReveal>
 
         {/* Hero CTA — URL input */}
         <ScrollReveal>
-          <div className="max-w-[550px] mx-auto">
+          <div className="max-w-xl mx-auto">
             <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="url"
                 placeholder="Enter your website URL"
-                className="flex-1 bg-secondary border border-border rounded-full px-6 py-3 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+                className="flex-1 bg-secondary border border-border rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
               />
-              <CTAButton size="md" className="h-[52px] shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
+              <CTAButton size="md" className="h-12 px-8 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
                 Get My Free Audit →
               </CTAButton>
             </div>
@@ -384,7 +374,7 @@ const Index = () => {
             </ScrollReveal>
           ))}
         </div>
-        <p className="text-muted-foreground text-sm text-center mt-10">
+        <p className="text-muted-foreground text-sm text-center mt-10 mb-6">
           No obligation. No pressure.
         </p>
 
@@ -448,7 +438,7 @@ const Index = () => {
           <ScrollReveal>
             <CardWrap className="p-8 h-full">
               <h3 className="text-foreground font-bold text-lg mb-5">What this audit is</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {[
                   "Human-reviewed, no automated tools",
                   "Focused on search + AI answer systems",
@@ -456,8 +446,8 @@ const Index = () => {
                   "Identifies real blockers, not cosmetic issues",
                   "Honest, prioritised, and decision-ready",
                 ].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm">
-                    <TealCheck />
+                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
+                    <span className="mt-0.5"><TealCheck /></span>
                     {t}
                   </li>
                 ))}
@@ -467,14 +457,14 @@ const Index = () => {
           <ScrollReveal>
             <CardWrap className="p-8 h-full">
               <h3 className="text-foreground font-bold text-lg mb-5">What this audit is not</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {[
                   "No guaranteed rankings or traffic",
                   "No automated SEO reports",
                   "No shortcuts, hacks, or 'AI optimisation' hype",
                 ].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm">
-                    <RedX />
+                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
+                    <span className="mt-0.5"><RedX /></span>
                     {t}
                   </li>
                 ))}
