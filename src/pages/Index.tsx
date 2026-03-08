@@ -250,7 +250,7 @@ const Index = () => {
                 { val: "$0", label: "No credit card" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
-                  <p className="text-primary font-syne font-extrabold text-2xl md:text-3xl">{s.val}</p>
+                  <p className="text-primary font-extrabold text-2xl md:text-3xl leading-normal">{s.val}</p>
                   <p className="text-muted-foreground text-xs mt-1">{s.label}</p>
                 </div>
               ))}
@@ -483,7 +483,7 @@ const Index = () => {
                     "{t.quote}"
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-syne font-bold text-sm">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
                       {t.name[0]}
                     </div>
                     <div>
