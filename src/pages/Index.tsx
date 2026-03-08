@@ -457,14 +457,14 @@ const Index = () => {
           <ScrollReveal>
             <CardWrap className="p-8 h-full">
               <h3 className="text-foreground font-bold text-lg mb-5">What this audit is not</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {[
                   "No guaranteed rankings or traffic",
                   "No automated SEO reports",
                   "No shortcuts, hacks, or 'AI optimisation' hype",
                 ].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm">
-                    <RedX />
+                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
+                    <span className="mt-0.5"><RedX /></span>
                     {t}
                   </li>
                 ))}
