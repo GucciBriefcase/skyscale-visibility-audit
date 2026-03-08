@@ -66,6 +66,7 @@
   }
 }
 
+@layer utilities {
   @keyframes pulse-glow {
     0%, 100% { box-shadow: 0 0 8px rgba(0,229,200,0.2); }
     50% { box-shadow: 0 0 20px rgba(0,229,200,0.4); }
@@ -74,7 +75,6 @@
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
-  .text-body {
     color: hsl(var(--body-text));
   }
   .text-caption {
