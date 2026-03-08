@@ -32,7 +32,7 @@ const RedX = () => (
 const Stars = () => (
   <div className="flex gap-0.5 mb-3">
     {[...Array(5)].map((_, i) => (
-      <Star key={i} size={16} className="text-primary fill-primary" />
+      <Star key={i} size={18} className="text-primary fill-primary" />
     ))}
   </div>
 );
@@ -76,28 +76,35 @@ const testimonials = [
   },
 ];
 
-/* ── Hero URL input ─────────────────────────── */
-const HeroForm: React.FC = () => {
+/* ── Scroll helper ──────────────────────────── */
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) {
+    const offset = 80; // sticky nav height
+    const y = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+};
+
+/* ── Mid-page CTA ───────────────────────────── */
+const MidPageCTA: React.FC = () => {
   const [url, setUrl] = useState("");
   return (
-    <div className="max-w-[550px] mx-auto">
+    <div className="max-w-[550px] mx-auto mt-12">
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="url"
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-1 bg-secondary border border-border rounded-full px-5 py-3.5 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-1 bg-secondary border border-border rounded-full px-5 py-3 h-[48px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
-        <CTAButton size="lg" className="h-[52px]" onClick={() => {
-          const el = document.getElementById("audit-form");
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }}>
+        <CTAButton size="md" className="h-[48px]" onClick={() => scrollTo("audit-form")}>
           Get My Free Audit →
         </CTAButton>
       </div>
-      <p className="text-muted-foreground text-sm text-center mt-4">
-        No obligation. No pressure.
+      <p className="text-muted-foreground text-xs text-center mt-3">
+        Free audit · No credit card required
       </p>
     </div>
   );
@@ -274,20 +281,19 @@ const Index = () => {
           </div>
         </ScrollReveal>
 
-        {/* Subtle pill links */}
+        {/* Single CTA button */}
         <ScrollReveal>
-          <div className="flex items-center justify-center gap-3 mb-10 flex-wrap">
-            {["Case Studies", "How It Works", "Client Results"].map((l) => (
-              <a key={l} href="#how-it-works" className="pill hover:border-primary/50 transition">
-                {l}
-              </a>
-            ))}
+          <div className="text-center">
+            <button
+              onClick={() => scrollTo("how-it-works")}
+              className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3 shadow-[0_0_20px_hsl(174_100%_42%/0.3)] hover:shadow-[0_0_30px_hsl(174_100%_42%/0.4)] transition-all duration-300"
+            >
+              See How It Works
+            </button>
+            <p className="text-muted-foreground text-sm mt-4">
+              No obligation. No pressure.
+            </p>
           </div>
-        </ScrollReveal>
-
-        {/* Single-field CTA */}
-        <ScrollReveal>
-          <HeroForm />
         </ScrollReveal>
       </Section>
 
@@ -330,7 +336,7 @@ const Index = () => {
             </p>
           </div>
         </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
               num: "01",
@@ -352,13 +358,13 @@ const Index = () => {
             },
           ].map((s) => (
             <ScrollReveal key={s.num}>
-              <CardWrap className="p-8 text-center h-full">
+              <CardWrap className="p-8 text-center h-full min-h-[240px] flex flex-col justify-center">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
                   {s.icon}
                 </div>
-                <p className="text-primary/40 text-sm font-bold mb-2">{s.num}</p>
-                <h3 className="text-foreground font-bold text-lg mb-2">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-primary/40 text-xs font-bold mb-2">{s.num}</p>
+                <h3 className="text-foreground font-semibold text-lg mb-3">{s.title}</h3>
+                <p className="text-muted-foreground text-[0.9375rem] leading-relaxed">{s.desc}</p>
               </CardWrap>
             </ScrollReveal>
           ))}
@@ -366,42 +372,48 @@ const Index = () => {
         <p className="text-muted-foreground text-sm text-center mt-10">
           No obligation. No pressure.
         </p>
+
+        {/* Mid-page CTA */}
+        <MidPageCTA />
       </Section>
 
       {/* ───── 4. WHAT YOU'LL RECEIVE ───── */}
       <Section alt className="border-t border-border">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <ScrollReveal>
+        <ScrollReveal>
+          <div className="text-center mb-14">
             <Pill>YOUR REPORT</Pill>
             <h2 className="text-foreground font-bold text-3xl md:text-4xl mb-4">
               Here's what you'll <span className="text-primary">receive</span>
             </h2>
-            <ul className="space-y-4 mb-6">
-              {[
-                "What is blocking eligibility",
-                "What is limiting search and AI visibility",
-                "What should be fixed, merged, or removed",
-                "What matters now versus later",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3 text-muted-foreground text-base">
-                  <TealCheck />
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              You will not receive a checklist — only a clear assessment of what's limiting visibility and what actions require a decision. No fluff. No padding.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal>
-            <CardWrap className="overflow-hidden">
-              <div className="relative">
-                <img src={sampleAuditImg} alt="Sample audit report preview" className="w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+          </div>
+        </ScrollReveal>
+        <ScrollReveal>
+          <CardWrap className="rounded-2xl p-10 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    "What is blocking eligibility",
+                    "What is limiting search and AI visibility",
+                    "What should be fixed, merged, or removed",
+                    "What matters now versus later",
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-3 text-muted-foreground text-base">
+                      <TealCheck />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  You will not receive a checklist — only a clear assessment of what's limiting visibility and what actions require a decision. No fluff. No padding.
+                </p>
               </div>
-            </CardWrap>
-          </ScrollReveal>
-        </div>
+              <div className="overflow-hidden rounded-xl">
+                <img src={sampleAuditImg} alt="Sample audit report preview" className="w-full object-cover" />
+              </div>
+            </div>
+          </CardWrap>
+        </ScrollReveal>
       </Section>
 
       {/* ───── 5. WHAT THIS IS / ISN'T ───── */}
@@ -474,12 +486,12 @@ const Index = () => {
               </p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {testimonials.map((t) => (
               <ScrollReveal key={t.name}>
                 <CardWrap className="p-8 h-full flex flex-col">
                   <Stars />
-                  <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-1">
+                  <p className="text-muted-foreground text-[1.0625rem] leading-relaxed mb-8 flex-1">
                     "{t.quote}"
                   </p>
                   <div className="flex items-center gap-3">
@@ -504,7 +516,7 @@ const Index = () => {
           <ScrollReveal>
             <div className="text-center mb-10">
               <Pill>GET STARTED</Pill>
-              <h2 className="text-foreground font-bold text-3xl md:text-4xl mb-4">
+              <h2 className="text-foreground font-bold text-3xl md:text-4xl mb-4 md:whitespace-nowrap">
                 Ready to check your AI <span className="text-primary">visibility</span>?
               </h2>
               <p className="text-muted-foreground text-base">
