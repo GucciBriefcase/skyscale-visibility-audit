@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import skyscaleLogo from "@/assets/skyscale-logo.png";
-import CTAButton from "./CTAButton";
 
 const navLinks = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Contact", href: "#footer" },
+  { label: "Visibility Audit", href: "#audit-form" },
+  { label: "Services", href: "#" },
+  { label: "Case Studies", href: "#" },
+  { label: "Insights", href: "#" },
+  { label: "About Us", href: "#" },
+  { label: "Contact Us", href: "#footer" },
 ];
+
+const WHATSAPP_URL = "https://wa.me/61468881846";
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,35 +24,43 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300 backdrop-blur-md border-b ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-background/80 border-white/[0.05]"
+          : "bg-transparent border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-between h-16">
+        {/* Logo */}
         <a href="#hero" className="flex-shrink-0">
           <img src={skyscaleLogo} alt="SkyScale" className="h-8 md:h-10" />
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Center pill nav */}
+        <nav className="hidden lg:flex items-center bg-white/[0.05] rounded-full px-6 py-2 gap-6">
           {navLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground whitespace-nowrap"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
+        {/* Right side */}
         <div className="flex items-center gap-2 md:gap-4">
-          <CTAButton size="sm" href="#audit-form" className="whitespace-nowrap !px-4 !py-2 !text-xs md:!px-7 md:!py-3 md:!text-sm">
-            Get Free Audit
-          </CTAButton>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center bg-primary text-primary-foreground font-semibold rounded-full px-6 py-2.5 text-sm whitespace-nowrap hover:opacity-90 transition-opacity"
+          >
+            Get in touch on WhatsApp
+          </a>
 
-          <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
+          <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               {mobileOpen ? (
                 <path d="M18 6L6 18M6 6l12 12" />
@@ -63,8 +76,9 @@ const Header: React.FC = () => {
         </div>
       </div>
 
+      {/* Mobile drawer */}
       <div
-        className={`md:hidden fixed inset-0 top-16 z-40 transition-transform duration-300 ${
+        className={`lg:hidden fixed inset-0 top-16 z-40 transition-transform duration-300 ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -80,6 +94,14 @@ const Header: React.FC = () => {
               {l.label}
             </a>
           ))}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-sm font-semibold text-primary hover:underline mt-4"
+          >
+            Get in touch on WhatsApp
+          </a>
         </div>
       </div>
     </header>
