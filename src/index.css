@@ -149,8 +149,9 @@
     color: hsl(174 100% 42%);
   }
   .cta-btn-sm {
-    padding: 12px 28px;
+    padding: 10px 28px;
     font-size: 14px;
+    line-height: 1.2;
   }
   .cta-btn-bottom {
     padding: 20px 40px;
