@@ -207,7 +207,7 @@ const BottomForm: React.FC = () => {
 
       <div className="mt-6">
         <CTAButton size="lg" className="w-full shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
-          Get My Free Audit →
+           Get My Free Audit
         </CTAButton>
       </div>
 
