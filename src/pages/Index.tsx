@@ -360,7 +360,7 @@ const Index = () => {
             </ScrollReveal>
           ))}
         </div>
-        <p className="text-muted-foreground text-sm text-center mt-10 mb-6">
+        <p className="text-muted-foreground text-sm text-center mt-10 mb-8">
           No obligation. No pressure.
         </p>
 
