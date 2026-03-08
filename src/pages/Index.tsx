@@ -349,13 +349,13 @@ const Index = () => {
             },
           ].map((s) => (
             <ScrollReveal key={s.num}>
-              <CardWrap className="p-8 text-center h-full min-h-[240px] flex flex-col justify-center">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+              <CardWrap className="p-8 h-full min-h-[240px] flex flex-col relative">
+                <span className="absolute top-4 right-4 text-xs font-bold text-primary/30">{s.num}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   {s.icon}
                 </div>
-                <p className="text-primary/40 text-xs font-bold mb-2">{s.num}</p>
-                <h3 className="text-foreground font-semibold text-lg mb-3">{s.title}</h3>
-                <p className="text-muted-foreground text-[0.9375rem] leading-relaxed">{s.desc}</p>
+                <h3 className="text-foreground font-semibold text-lg mb-3 text-left">{s.title}</h3>
+                <p className="text-muted-foreground text-[0.9375rem] leading-relaxed text-left">{s.desc}</p>
               </CardWrap>
             </ScrollReveal>
           ))}
