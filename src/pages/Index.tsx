@@ -227,7 +227,7 @@ const Index = () => {
       <WhatsAppButton />
 
       {/* ───── 1. HERO ───── */}
-      <Section id="hero" className="pt-16 md:pt-24 pb-28 md:pb-36">
+      <Section id="hero" className="pt-28 md:pt-36 pb-24 md:pb-32">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-14">
             <Pill>FREE AI VISIBILITY AUDIT</Pill>
@@ -462,7 +462,7 @@ const Index = () => {
 
       {/* ───── 6. TESTIMONIALS ───── */}
       <section className="py-24 md:py-32 noise-overlay bg-testimonials">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-14">
               <Pill>TESTIMONIALS</Pill>
@@ -499,7 +499,7 @@ const Index = () => {
       </section>
 
       {/* ───── 7. FINAL CTA ───── */}
-      <section id="audit-form" className="py-28 md:py-36 bg-cta-gradient noise-overlay">
+      <section id="audit-form" className="py-24 md:py-32 bg-cta-gradient noise-overlay">
         <div className="max-w-xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
