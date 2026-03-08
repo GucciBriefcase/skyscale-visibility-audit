@@ -32,7 +32,7 @@ const RedX = () => (
 const Stars = () => (
   <div className="flex gap-0.5 mb-3">
     {[...Array(5)].map((_, i) => (
-      <Star key={i} size={18} className="text-primary fill-primary" />
+      <Star key={i} size={20} className="text-primary fill-primary" />
     ))}
   </div>
 );
