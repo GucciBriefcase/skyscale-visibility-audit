@@ -528,7 +528,7 @@ const Index = () => {
                 </p>
               </div>
             </ScrollReveal>
-            <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map((t) => (
                 <ScrollReveal key={t.name}>
                   <CardWrap className="p-8 h-full flex flex-col">
@@ -539,7 +539,7 @@ const Index = () => {
                       {t.quote.split(t.highlight)[1]}"
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
                         {t.name[0]}
                       </div>
                       <div>
