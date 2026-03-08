@@ -25,9 +25,9 @@ const Header: React.FC = () => {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-between h-16">
         <a href="#hero" className="flex-shrink-0">
-          <img src={skyscaleLogo} alt="SkyScale" className="h-10" />
+          <img src={skyscaleLogo} alt="SkyScale" className="h-8 md:h-10" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -42,8 +42,8 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <CTAButton size="sm" href="#audit-form">
+        <div className="flex items-center gap-2 md:gap-4">
+          <CTAButton size="sm" href="#audit-form" className="whitespace-nowrap !px-4 !py-2 !text-xs md:!px-7 md:!py-3 md:!text-sm">
             Get Free Audit
           </CTAButton>
 
