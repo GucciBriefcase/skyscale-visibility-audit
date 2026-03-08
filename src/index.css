@@ -192,7 +192,6 @@
   .sticky-cta-btn:hover span {
     color: hsl(var(--primary-foreground));
   }
-  }
 
   /* Pill / badge */
   .pill {
