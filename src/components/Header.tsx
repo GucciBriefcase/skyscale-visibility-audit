@@ -3,12 +3,9 @@ import { Menu, X } from "lucide-react";
 import skyscaleLogo from "@/assets/skyscale-logo.png";
 
 const navLinks = [
-  { label: "Visibility Audit", href: "#visibility-audit", active: true },
-  { label: "Services", href: "#services", active: false },
-  { label: "Case Studies", href: "#case-studies", active: false },
-  { label: "Insights", href: "#insights", active: false },
-  { label: "About Us", href: "#about-us", active: false },
-  { label: "Contact Us", href: "#contact-us", active: false },
+  { label: "Visibility Audit", href: "#hero", active: true },
+  { label: "How It Works", href: "#how-it-works", active: false },
+  { label: "Contact Us", href: "#audit-form", active: false },
 ];
 
 const Header: React.FC = () => {
@@ -39,10 +36,10 @@ const Header: React.FC = () => {
 
         <div className="flex items-center">
           <a
-            href="#contact"
+            href="#audit-form"
             className="hidden md:inline-flex cta-btn cta-btn-sm"
           >
-            <span>Chat on WhatsApp</span>
+            <span>Get My Free Audit</span>
           </a>
           <button
             className="md:hidden text-foreground"
@@ -68,8 +65,8 @@ const Header: React.FC = () => {
               {l.label}
             </a>
           ))}
-          <a href="#contact" className="cta-btn cta-btn-sm mt-3 w-full">
-            <span>Chat on WhatsApp</span>
+          <a href="#audit-form" className="cta-btn cta-btn-sm mt-3 w-full" onClick={() => setMobileOpen(false)}>
+            <span>Get My Free Audit</span>
           </a>
         </div>
       )}

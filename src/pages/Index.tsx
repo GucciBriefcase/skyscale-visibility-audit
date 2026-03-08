@@ -109,13 +109,15 @@ const MidPageCTA: React.FC = () => {
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-[1.8] min-w-0 bg-white/[0.06] border border-white/[0.10] rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-[1.8] min-w-0 bg-white/[0.08] border border-white/[0.14] rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
         <CTAButton size="md" className={`h-12 px-8 ${ctaGlow}`} onClick={() => scrollTo("audit-form")}>
           Get My Free Audit
         </CTAButton>
       </div>
-      <TrustLine className="mt-3" />
+      <p className="text-muted-foreground text-xs text-center mt-3">
+        No obligation · Manually reviewed · Results within 48 hours
+      </p>
     </div>
   );
 };
@@ -473,9 +475,9 @@ const Index = () => {
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <ScrollReveal>
-              <CardWrap className="p-8 h-full">
-                <h3 className="text-foreground font-bold text-lg mb-5">What this audit is</h3>
-                <ul className="space-y-4">
+              <CardWrap className="p-8 md:p-10 h-full">
+                <h3 className="text-foreground font-bold text-lg mb-6">What this audit is</h3>
+                <ul className="space-y-5">
                   {[
                     "Human-reviewed, no automated tools",
                     "Focused on search + AI answer systems",
@@ -483,8 +485,8 @@ const Index = () => {
                     "Identifies real blockers, not cosmetic issues",
                     "Honest, prioritised, and decision-ready",
                   ].map((t) => (
-                    <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
-                      <span className="mt-0.5"><TealCheck /></span>
+                    <li key={t} className="flex items-center gap-3 text-muted-foreground text-[0.9375rem] leading-relaxed">
+                      <TealCheck />
                       {t}
                     </li>
                   ))}
@@ -492,21 +494,21 @@ const Index = () => {
               </CardWrap>
             </ScrollReveal>
             <ScrollReveal>
-              <CardWrap className="p-8 h-full">
-                <h3 className="text-foreground font-bold text-lg mb-5">What this audit is not</h3>
-                <ul className="space-y-4">
+              <CardWrap className="p-8 md:p-10 h-full">
+                <h3 className="text-foreground font-bold text-lg mb-6">What this audit is not</h3>
+                <ul className="space-y-5">
                   {[
                     "No guaranteed rankings or traffic",
                     "No automated SEO reports",
                     "No shortcuts, hacks, or 'AI optimisation' hype",
                   ].map((t) => (
-                    <li key={t} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
-                      <span className="mt-0.5"><RedX /></span>
+                    <li key={t} className="flex items-center gap-3 text-muted-foreground text-[0.9375rem] leading-relaxed">
+                      <RedX />
                       {t}
                     </li>
                   ))}
                 </ul>
-                <p className="text-muted-foreground text-sm italic mt-5">
+                <p className="text-muted-foreground text-sm italic mt-6">
                   This audit assesses eligibility and clarity — not outcomes. If you're looking for promises, this isn't for you.
                 </p>
               </CardWrap>
