@@ -42,8 +42,8 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <CTAButton size="sm" href="#audit-form" className="whitespace-nowrap text-xs md:text-sm">
+        <div className="flex items-center gap-2 md:gap-4">
+          <CTAButton size="sm" href="#audit-form" className="whitespace-nowrap !px-4 !py-2 !text-xs md:!px-7 md:!py-3 md:!text-sm">
             Get Free Audit
           </CTAButton>
 
