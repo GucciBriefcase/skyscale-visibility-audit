@@ -411,7 +411,7 @@ const Index = () => {
                     {s.icon}
                   </div>
                   <h3 className="text-foreground font-semibold text-lg mb-3 text-left">{s.title}</h3>
-                  <p className="text-muted-foreground text-[0.9375rem] leading-relaxed text-left">{s.desc}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed text-left">{s.desc}</p>
                 </CardWrap>
               </ScrollReveal>
             ))}
