@@ -276,20 +276,10 @@ const Index = () => {
           </CardWrap>
         </ScrollReveal>
 
-        {/* Logo bar */}
         <ScrollReveal>
-          <div className="mb-14">
-            <p className="text-muted-foreground text-xs uppercase tracking-wider mb-4 text-center">
-              Teams from these companies have run audits
-            </p>
-            <div className="flex items-center justify-center gap-8 flex-wrap">
-              {logos.map((name) => (
-                <span key={name} className="text-muted-foreground/40 font-bold text-lg tracking-wider">
-                  {name}
-                </span>
-              ))}
-            </div>
-          </div>
+          <p className="text-muted-foreground text-sm text-center mb-14">
+            Trusted by growing businesses · Reviewed manually by our team · Based in Australia
+          </p>
         </ScrollReveal>
 
         {/* Hero CTA — URL input */}
