@@ -278,7 +278,7 @@ const Index = () => {
                 className="flex-[1.8] min-w-0 bg-white/[0.07] border border-white/[0.12] rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary transition"
               />
               <CTAButton size="lg" className="flex-1 h-12 px-8 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
-                Get My Free Audit →
+                Get My Free Audit
               </CTAButton>
             </div>
             <p className="text-muted-foreground text-sm text-center mt-4">

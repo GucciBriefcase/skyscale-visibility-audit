@@ -247,7 +247,7 @@ const AuditForm: React.FC = () => {
         {step < 3 ? (
           <CTAButton size="md" onClick={goNext}>Continue</CTAButton>
         ) : (
-          <CTAButton size="md" onClick={handleSubmit}>Get My Free Audit →</CTAButton>
+          <CTAButton size="md" onClick={handleSubmit}>Get My Free Audit</CTAButton>
         )}
       </div>
 
