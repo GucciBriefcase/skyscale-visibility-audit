@@ -433,11 +433,11 @@ const Index = () => {
           </ScrollReveal>
           <ScrollReveal>
             <CardWrap className="rounded-2xl p-8 md:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-3">
                   {reportModules.map((mod) => (
                     <div key={mod.title} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
                         {mod.icon}
                       </span>
                       <div>
