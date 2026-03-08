@@ -1,8 +1,8 @@
 import React from "react";
-import { Sparkles, X } from "lucide-react";
+import { Sparkles, X, AlertTriangle } from "lucide-react";
 
 const AIResponseMockup: React.FC = () => (
-  <div className="bg-[hsl(0_0%_5%)] border border-border rounded-2xl overflow-hidden shadow-2xl">
+  <div className="bg-[hsl(0_0%_5%)] border border-border rounded-2xl overflow-hidden shadow-[0_0_24px_rgba(0,229,200,0.12)]">
     {/* Header bar */}
     <div className="flex items-center gap-2 px-5 py-3 border-b border-border bg-[hsl(0_0%_7%)]">
       <Sparkles size={14} className="text-muted-foreground" />
@@ -43,17 +43,15 @@ const AIResponseMockup: React.FC = () => (
           ))}
         </div>
 
-        {/* Your brand — not mentioned */}
+        {/* Warning bar */}
         <div className="mt-4 pt-4 border-t border-border">
-          <div className="flex items-center gap-2.5">
-            <span className="flex-shrink-0 w-5 h-5 rounded-full bg-destructive/15 flex items-center justify-center">
-              <X size={11} className="text-destructive" />
-            </span>
-            <p className="text-destructive text-base font-semibold">
-              Your Brand — <span className="text-destructive/70">Not Mentioned</span>
+          <div className="bg-primary/5 border border-primary/20 rounded-lg px-4 py-3 animate-pulse-glow flex items-center gap-2.5">
+            <AlertTriangle size={16} className="text-primary flex-shrink-0" />
+            <p className="text-primary text-sm font-medium">
+              Your Brand — Not Mentioned
             </p>
           </div>
-          <p className="text-muted-foreground text-xs mt-2 ml-[30px]">
+          <p className="text-muted-foreground text-xs mt-2 ml-1">
             AI couldn't find enough structured, citable information about your business.
           </p>
         </div>
