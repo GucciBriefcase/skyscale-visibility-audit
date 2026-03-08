@@ -210,13 +210,13 @@ const Index = () => {
       <WhatsAppButton />
 
       {/* ───── 1. HERO — spacious, focused ───── */}
-      <Section id="hero" className="pt-16 md:pt-24">
+      <Section id="hero" className="pt-16 md:pt-24 pb-28 md:pb-36">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-14">
             <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-5">
               Free AI & Search Visibility Audit
             </p>
-            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-6">
+            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-8">
               See whether your brand is eligible to appear in AI&#8209;generated answers
             </h1>
             <p className="text-body text-lg leading-relaxed max-w-2xl mx-auto">
