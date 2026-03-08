@@ -97,9 +97,9 @@ const MidPageCTA: React.FC = () => {
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-1 bg-secondary border border-border rounded-full px-5 py-3 h-[48px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-1 bg-secondary border border-border rounded-full px-5 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
-        <CTAButton size="md" className="h-[48px]" onClick={() => scrollTo("audit-form")}>
+        <CTAButton size="md" className="h-12 px-8 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
           Get My Free Audit →
         </CTAButton>
       </div>
