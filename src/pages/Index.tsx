@@ -151,7 +151,7 @@ const BottomForm: React.FC = () => {
   ];
 
   return (
-    <CardWrap className="rounded-2xl p-8">
+    <CardWrap className="rounded-2xl p-8 md:p-10">
       <h3 className="text-foreground font-bold text-xl mb-1">Request Your Free Audit</h3>
       <p className="text-muted-foreground text-sm mb-6">Takes ~2 minutes. Each request is manually reviewed.</p>
 
