@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import skyscaleLogo from "@/assets/skyscale-logo.png";
 
 const navLinks = [
-  { label: "Visibility Audit", href: "#audit-form" },
-  { label: "Services", href: "#" },
-  { label: "Case Studies", href: "#" },
-  { label: "Insights", href: "#" },
-  { label: "About Us", href: "#" },
-  { label: "Contact Us", href: "#footer" },
+  { label: "Visibility Audit", href: "#audit-form", active: true },
+  { label: "Services", href: "#", active: false },
+  { label: "Case Studies", href: "#", active: false },
+  { label: "Insights", href: "#", active: false },
+  { label: "About Us", href: "#", active: false },
+  { label: "Contact Us", href: "#footer", active: false },
 ];
 
 const WHATSAPP_URL = "https://wa.me/61468881846";
@@ -37,12 +37,16 @@ const Header: React.FC = () => {
         </a>
 
         {/* Center pill nav */}
-        <nav className="hidden lg:flex items-center bg-white/[0.05] rounded-full px-6 py-2 gap-6">
+        <nav className="hidden lg:flex items-center bg-white/[0.05] rounded-full px-3 py-1.5 gap-1">
           {navLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground whitespace-nowrap"
+              className={`text-sm px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap ${
+                l.active
+                  ? "bg-white/[0.10] text-foreground font-medium"
+                  : "text-muted-foreground hover:bg-white/[0.08] hover:text-foreground"
+              }`}
             >
               {l.label}
             </a>
