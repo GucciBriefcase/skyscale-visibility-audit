@@ -74,14 +74,14 @@ const testimonials = [
     name: "Sarah Chen",
     title: "Head of Growth",
     company: "TechFlow",
-    highlight: "our brand started appearing in AI-generated answers for the first time",
+    highlight: "appearing in AI-generated answers",
   },
   {
     quote: "No fluff, no upsell — just a brutally honest assessment of where we stood. It changed how we think about online visibility entirely.",
     name: "Marcus Webb",
     title: "Founder & CEO",
     company: "Meridian Advisory",
-    highlight: "It changed how we think about online visibility entirely",
+    highlight: "changed how we think about online visibility",
   },
 ];
 
