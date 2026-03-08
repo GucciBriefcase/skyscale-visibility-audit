@@ -281,16 +281,20 @@ const Index = () => {
           </div>
         </ScrollReveal>
 
-        {/* Single CTA button */}
+        {/* Hero CTA — URL input */}
         <ScrollReveal>
-          <div className="text-center">
-            <button
-              onClick={() => scrollTo("how-it-works")}
-              className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3 shadow-[0_0_20px_hsl(174_100%_42%/0.3)] hover:shadow-[0_0_30px_hsl(174_100%_42%/0.4)] transition-all duration-300"
-            >
-              See How It Works
-            </button>
-            <p className="text-muted-foreground text-sm mt-4">
+          <div className="max-w-[550px] mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="url"
+                placeholder="Enter your website URL"
+                className="flex-1 bg-secondary border border-border rounded-full px-6 py-3 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+              />
+              <CTAButton size="md" className="h-[52px] shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
+                Get My Free Audit →
+              </CTAButton>
+            </div>
+            <p className="text-muted-foreground text-sm text-center mt-4">
               No obligation. No pressure.
             </p>
           </div>
