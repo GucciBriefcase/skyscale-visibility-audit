@@ -28,10 +28,11 @@ const Section: React.FC<{
   className?: string;
   id?: string;
   alt?: boolean;
-}> = ({ children, className = "", id, alt }) => (
+  bg?: string;
+}> = ({ children, className = "", id, alt, bg }) => (
   <section
     id={id}
-    className={`py-24 md:py-32 noise-overlay ${alt ? "bg-alt" : "bg-background"} ${className}`}
+    className={`py-24 md:py-32 noise-overlay ${bg ? bg : alt ? "bg-alt" : "bg-background"} ${className}`}
   >
     <div className="max-w-6xl mx-auto px-6">{children}</div>
   </section>
