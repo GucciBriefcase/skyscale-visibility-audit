@@ -74,14 +74,14 @@ const testimonials = [
     name: "Sarah Chen",
     title: "Head of Growth",
     company: "TechFlow",
-    highlight: "our brand started appearing in AI-generated answers for the first time",
+    highlight: "appearing in AI-generated answers",
   },
   {
     quote: "No fluff, no upsell — just a brutally honest assessment of where we stood. It changed how we think about online visibility entirely.",
     name: "Marcus Webb",
     title: "Founder & CEO",
     company: "Meridian Advisory",
-    highlight: "It changed how we think about online visibility entirely",
+    highlight: "changed how we think about online visibility",
   },
 ];
 
@@ -203,7 +203,7 @@ const BottomForm: React.FC = () => {
 
   return (
     <CardWrap className="rounded-2xl p-8 md:p-10">
-      <h3 className="text-foreground font-bold text-xl mb-1">Request Your Free Audit</h3>
+      <h3 className="text-foreground font-bold text-xl md:text-2xl mb-1">Request Your Free Audit</h3>
       <p className="text-muted-foreground text-sm mb-6">
         Manually reviewed by our team · Results within 48 hours
       </p>
@@ -289,9 +289,9 @@ const Index = () => {
         {/* ───── 1. HERO ───── */}
         <Section id="hero" className="pt-28 md:pt-36 pb-24 md:pb-32">
           <ScrollReveal>
-            <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="text-center max-w-4xl mx-auto mb-10">
               <Pill>FREE AI VISIBILITY AUDIT</Pill>
-              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl leading-[1.12] mb-6 max-w-2xl mx-auto">
+              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-3xl mx-auto">
                 See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
               </h1>
               <p className="text-muted-foreground text-base max-w-2xl mx-auto">
@@ -300,9 +300,33 @@ const Index = () => {
             </div>
           </ScrollReveal>
 
-          {/* Hero CTA — URL input (primary action, placed high) */}
+          {/* Trust stats */}
           <ScrollReveal>
-            <div className="max-w-xl mx-auto mb-10">
+            <CardWrap className="max-w-lg mx-auto mb-8 p-8">
+              <div className="flex items-center justify-around">
+                {[
+                  { val: "2,400+", label: "Audits completed" },
+                  { val: "48hr", label: "Turnaround" },
+                  { val: "$0", label: "No credit card" },
+                ].map((s) => (
+                  <div key={s.label} className="text-center">
+                    <p className="text-primary font-extrabold text-3xl md:text-4xl leading-normal">{s.val}</p>
+                    <p className="text-muted-foreground text-sm mt-1.5">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </CardWrap>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <p className="text-muted-foreground text-sm text-center mb-10">
+              Trusted by growing businesses · Reviewed manually by our team · Based in Australia
+            </p>
+          </ScrollReveal>
+
+          {/* Hero CTA — URL input */}
+          <ScrollReveal>
+            <div className="max-w-xl mx-auto">
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="url"
@@ -319,30 +343,6 @@ const Index = () => {
                 No obligation · No credit card · Results within 48 hours
               </p>
             </div>
-          </ScrollReveal>
-
-          {/* Trust stats */}
-          <ScrollReveal>
-            <CardWrap className="max-w-lg mx-auto mb-8 p-6">
-              <div className="flex items-center justify-around">
-                {[
-                  { val: "2,400+", label: "Audits completed" },
-                  { val: "48hr", label: "Turnaround" },
-                  { val: "$0", label: "No credit card" },
-                ].map((s) => (
-                  <div key={s.label} className="text-center">
-                    <p className="text-primary font-extrabold text-2xl md:text-3xl leading-normal">{s.val}</p>
-                    <p className="text-muted-foreground text-sm mt-1.5">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-            </CardWrap>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <p className="text-muted-foreground text-sm text-center">
-              Trusted by growing businesses · Reviewed manually by our team · Based in Australia
-            </p>
           </ScrollReveal>
         </Section>
 
@@ -434,19 +434,19 @@ const Index = () => {
           <ScrollReveal>
             <CardWrap className="rounded-2xl p-8 md:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div className="space-y-5">
+                <div className="space-y-3">
                   {reportModules.map((mod) => (
-                    <div key={mod.title} className="flex items-start gap-4">
-                      <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
+                    <div key={mod.title} className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
                         {mod.icon}
                       </span>
                       <div>
                         <p className="text-foreground font-semibold text-sm mb-0.5">{mod.title}</p>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{mod.desc}</p>
+                        <p className="text-muted-foreground text-xs leading-relaxed">{mod.desc}</p>
                       </div>
                     </div>
                   ))}
-                  <p className="text-muted-foreground text-sm leading-relaxed pt-2">
+                  <p className="text-muted-foreground text-xs leading-relaxed pt-2">
                     No fluff. No padding. Just a clear, decision-ready assessment.
                   </p>
                 </div>
@@ -528,7 +528,7 @@ const Index = () => {
                 </p>
               </div>
             </ScrollReveal>
-            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map((t) => (
                 <ScrollReveal key={t.name}>
                   <CardWrap className="p-8 h-full flex flex-col">
@@ -555,7 +555,7 @@ const Index = () => {
         </section>
 
         {/* ───── 7. FINAL CTA ───── */}
-        <section id="audit-form" className="py-24 md:py-32 bg-cta-gradient noise-overlay">
+        <section id="audit-form" className="py-28 md:py-32 bg-cta-gradient noise-overlay">
           <div className="max-w-xl mx-auto px-6">
             <ScrollReveal>
               <div className="text-center mb-10">
