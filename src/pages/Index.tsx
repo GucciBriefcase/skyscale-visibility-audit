@@ -305,9 +305,9 @@ const Index = () => {
             <CardWrap className="max-w-lg mx-auto mb-8 p-8">
               <div className="flex items-center justify-around">
                 {[
-                  { val: "2,400+", label: "Audits completed" },
-                  { val: "48hr", label: "Turnaround" },
-                  { val: "$0", label: "No credit card" },
+                  { val: "100+", label: "Audits delivered" },
+                  { val: "48hr", label: "Turnaround time" },
+                  { val: "$0", label: "Completely free" },
                 ].map((s) => (
                   <div key={s.label} className="text-center">
                     <p className="text-primary font-extrabold text-3xl md:text-4xl leading-normal">{s.val}</p>
