@@ -295,38 +295,41 @@ const Index = () => {
       {/* ───── 3. HOW IT WORKS — elevated card container ───── */}
       <Section id="how-it-works">
         <ScrollReveal>
-          <h2 className="text-foreground font-bold text-2xl md:text-3xl text-center mb-16">
+          <h2 className="text-foreground font-bold text-3xl text-center mb-4">
             How it works
           </h2>
+          <p className="text-body text-base text-center mb-14 max-w-xl mx-auto">
+            Three simple steps to understanding your AI visibility.
+          </p>
         </ScrollReveal>
-        <div className="card-premium rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+        <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               {
                 num: "01",
-                icon: <Send size={22} className="text-primary" />,
+                icon: <Send size={28} className="text-primary" />,
                 title: "You submit your website",
                 desc: "Fill out the short form with your website and a few details about your business.",
               },
               {
                 num: "02",
-                icon: <ClipboardCheck size={22} className="text-primary" />,
+                icon: <ClipboardCheck size={28} className="text-primary" />,
                 title: "We review it manually",
                 desc: "Senior consultants assess your eligibility using our Search + AI visibility framework.",
               },
               {
                 num: "03",
-                icon: <FileText size={22} className="text-primary" />,
+                icon: <FileText size={28} className="text-primary" />,
                 title: "You receive a clear assessment",
                 desc: "An honest, prioritised report of what's blocking visibility and what needs attention.",
               },
             ].map((s) => (
               <ScrollReveal key={s.num}>
                 <div className="text-center">
-                  <div className="flex items-center justify-center mb-4">{s.icon}</div>
-                  <p className="text-primary/15 font-extrabold text-4xl mb-3">{s.num}</p>
-                  <h3 className="text-foreground font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-body text-base leading-relaxed">{s.desc}</p>
+                  <div className="flex items-center justify-center mb-5">{s.icon}</div>
+                  <h3 className="text-foreground font-semibold text-xl mb-2">{s.title}</h3>
+                  <p className="text-muted-foreground text-[15px] leading-relaxed mb-3">{s.desc}</p>
+                  <p className="text-primary/40 font-extrabold text-2xl">{s.num}</p>
                 </div>
               </ScrollReveal>
             ))}
