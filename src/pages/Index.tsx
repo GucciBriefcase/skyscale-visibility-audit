@@ -482,16 +482,16 @@ const Index = () => {
               <ScrollReveal key={t.name}>
                 <CardWrap className="p-8 h-full flex flex-col">
                   <Stars />
-                  <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-1">
+                  <p className="text-muted-foreground text-base font-medium leading-relaxed mb-8 flex-1">
                     "{t.quote}"
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+                    <div className="w-11 h-11 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
                       {t.name[0]}
                     </div>
                     <div>
-                      <p className="text-foreground font-semibold text-base">{t.name}</p>
-                      <p className="text-gray-400 text-sm">{t.title}, {t.company}</p>
+                      <p className="text-foreground font-semibold text-sm">{t.name}</p>
+                      <p className="text-gray-400 text-xs">{t.title}, {t.company}</p>
                     </div>
                   </div>
                 </CardWrap>
