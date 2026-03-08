@@ -528,7 +528,7 @@ const Index = () => {
                 </p>
               </div>
             </ScrollReveal>
-            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map((t) => (
                 <ScrollReveal key={t.name}>
                   <CardWrap className="p-8 h-full flex flex-col">
