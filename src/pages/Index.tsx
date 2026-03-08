@@ -235,7 +235,7 @@ const Index = () => {
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-14">
             <Pill>FREE AI VISIBILITY AUDIT</Pill>
-            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-6">
+            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl leading-[1.12] mb-6 max-w-2xl mx-auto">
               See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
             </h1>
             <p className="text-muted-foreground text-base max-w-2xl mx-auto">
