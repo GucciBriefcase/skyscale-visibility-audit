@@ -63,23 +63,23 @@ const testimonials = [
 const HeroForm: React.FC = () => {
   const [url, setUrl] = useState("");
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-[550px] mx-auto">
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="url"
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-1 bg-card border border-border rounded-full px-5 py-3.5 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-1 bg-card border border-border rounded-full px-5 py-3.5 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
-        <CTAButton size="md" onClick={() => {
+        <CTAButton size="lg" className="h-[52px] px-8 shadow-[0_0_20px_hsl(170_100%_45%/0.3)]" onClick={() => {
           const el = document.getElementById("audit-form");
           if (el) el.scrollIntoView({ behavior: "smooth" });
         }}>
           Get My Free Audit →
         </CTAButton>
       </div>
-      <p className="text-caption text-xs text-center mt-3">
+      <p className="text-caption text-xs text-center mt-4">
         No credit card · Delivered in 48 hours · 100% human-reviewed
       </p>
     </div>
