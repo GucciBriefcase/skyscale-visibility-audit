@@ -470,11 +470,11 @@ const Index = () => {
       </section>
 
       {/* ───── 7. FINAL CTA with full form ───── */}
-      <section id="audit-form" className="py-24 md:py-32 bg-cta-gradient noise-overlay">
+      <section id="audit-form" className="py-28 md:py-36 bg-cta-gradient noise-overlay">
         <div className="max-w-xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-3">
+              <h2 className="text-foreground font-bold text-3xl mb-4">
                 Ready to check your AI visibility?
               </h2>
               <p className="text-body text-base">
