@@ -21,9 +21,9 @@ const StickyCtaBar: React.FC = () => {
         </span>
         <a
           href="#audit-form"
-          className="bg-primary-foreground text-primary font-semibold text-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
+          className="sticky-cta-btn font-bold text-sm px-5 py-2 rounded-full"
         >
-          Get My Free Audit
+          <span>Get My Free Audit</span>
         </a>
       </div>
     </div>
