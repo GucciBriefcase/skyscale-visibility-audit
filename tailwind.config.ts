@@ -15,7 +15,6 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        syne: ['Syne', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
