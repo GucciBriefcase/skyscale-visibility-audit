@@ -57,9 +57,6 @@ const Section: React.FC<{
   </section>
 );
 
-/* ── Logo bar placeholder logos ─────────────── */
-const logos = ["Canva", "Xero", "Atlassian", "Culture Amp", "SafetyCulture"];
-
 /* ── Testimonials ───────────────────────────── */
 const testimonials = [
   {
