@@ -12,7 +12,7 @@ import invisibleImg from "@/assets/invisible-section.jpg";
 /* ── Shared helpers ─────────────────────────── */
 
 const Pill: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <span className="text-xs uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full inline-block mb-4">
+  <span className="section-label inline-block mb-4">
     {children}
   </span>
 );
@@ -38,7 +38,7 @@ const Stars = () => (
 );
 
 const CardWrap: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => (
-  <div className={`bg-white/[0.03] border border-white/[0.06] rounded-xl ${className}`}>
+  <div className={`bg-card border border-border rounded-xl card-hover-glow ${className}`}>
     {children}
   </div>
 );
@@ -48,11 +48,10 @@ const Section: React.FC<{
   className?: string;
   id?: string;
   alt?: boolean;
-  bg?: string;
-}> = ({ children, className = "", id, alt, bg }) => (
+}> = ({ children, className = "", id, alt }) => (
   <section
     id={id}
-    className={`py-24 md:py-32 noise-overlay ${bg ? bg : alt ? "bg-alt" : "bg-background"} ${className}`}
+    className={`py-24 md:py-32 noise-overlay ${alt ? "bg-surface" : "bg-background"} ${className}`}
   >
     <div className="max-w-6xl mx-auto px-6">{children}</div>
   </section>
@@ -88,9 +87,9 @@ const HeroForm: React.FC = () => {
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-1 bg-white/[0.05] border border-white/[0.06] rounded-full px-5 py-3.5 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-1 bg-secondary border border-border rounded-full px-5 py-3.5 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
-        <CTAButton size="lg" className="h-[52px] px-8 shadow-[0_0_20px_hsl(170_100%_45%/0.3)]" onClick={() => {
+        <CTAButton size="lg" className="h-[52px]" onClick={() => {
           const el = document.getElementById("audit-form");
           if (el) el.scrollIntoView({ behavior: "smooth" });
         }}>
@@ -119,7 +118,7 @@ const BottomForm: React.FC = () => {
   const update = (key: string, value: string) => setForm((f) => ({ ...f, [key]: value }));
 
   const inputCls =
-    "w-full bg-white/[0.05] border border-white/[0.06] rounded-lg px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition";
+    "w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition";
   const labelCls = "block text-sm font-semibold text-foreground mb-1.5";
 
   if (submitted) {
@@ -203,7 +202,7 @@ const BottomForm: React.FC = () => {
       )}
 
       <div className="mt-6">
-        <CTAButton size="lg" className="w-full shadow-[0_0_20px_hsl(170_100%_45%/0.3)]" onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
+        <CTAButton size="lg" className="w-full cta-btn-bottom" onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
           Get My Free Audit →
         </CTAButton>
       </div>
@@ -251,7 +250,7 @@ const Index = () => {
                 { val: "$0", label: "No credit card" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
-                  <p className="text-primary font-extrabold text-2xl md:text-3xl">{s.val}</p>
+                  <p className="text-primary font-syne font-extrabold text-2xl md:text-3xl">{s.val}</p>
                   <p className="text-muted-foreground text-xs mt-1">{s.label}</p>
                 </div>
               ))}
@@ -279,7 +278,7 @@ const Index = () => {
         <ScrollReveal>
           <div className="flex items-center justify-center gap-3 mb-10 flex-wrap">
             {["Case Studies", "How It Works", "Client Results"].map((l) => (
-              <a key={l} href="#how-it-works" className="text-xs text-muted-foreground border border-white/[0.06] rounded-full px-4 py-1.5 hover:text-foreground hover:border-white/10 transition">
+              <a key={l} href="#how-it-works" className="pill hover:border-primary/50 transition">
                 {l}
               </a>
             ))}
@@ -293,32 +292,30 @@ const Index = () => {
       </Section>
 
       {/* ───── 2. PROBLEM ───── */}
-      <section id="invisible" className="py-24 md:py-32 noise-overlay" style={{ backgroundColor: "#0a0a0a" }}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <ScrollReveal>
-              <CardWrap className="overflow-hidden">
-                <img src={invisibleImg} alt="AI visibility data" className="w-full object-cover" />
-              </CardWrap>
-            </ScrollReveal>
-            <ScrollReveal>
-              <Pill>THE PROBLEM</Pill>
-              <h2 className="text-foreground font-bold text-3xl md:text-4xl mb-4">
-                Most businesses are <span className="text-primary">invisible</span> in AI answers
-              </h2>
-              <p className="text-muted-foreground text-base leading-relaxed mb-4">
-                AI doesn't rank the way search engines do. It synthesises answers from sources it considers clear, credible, and consistent.
-              </p>
-              <p className="text-muted-foreground text-base leading-relaxed mb-4">
-                If your brand isn't structured in a way that AI systems can confidently extract and reference, you won't be included — no matter how good your product or service is.
-              </p>
-              <p className="text-muted-foreground text-base leading-relaxed">
-                This isn't a penalty. It's silent exclusion. And most businesses don't even realise it's happening.
-              </p>
-            </ScrollReveal>
-          </div>
+      <Section id="invisible" alt>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <ScrollReveal>
+            <CardWrap className="overflow-hidden">
+              <img src={invisibleImg} alt="AI visibility data" className="w-full object-cover" />
+            </CardWrap>
+          </ScrollReveal>
+          <ScrollReveal>
+            <Pill>THE PROBLEM</Pill>
+            <h2 className="text-foreground font-bold text-3xl md:text-4xl mb-4">
+              Most businesses are <span className="text-primary">invisible</span> in AI answers
+            </h2>
+            <p className="text-muted-foreground text-base leading-relaxed mb-4">
+              AI doesn't rank the way search engines do. It synthesises answers from sources it considers clear, credible, and consistent.
+            </p>
+            <p className="text-muted-foreground text-base leading-relaxed mb-4">
+              If your brand isn't structured in a way that AI systems can confidently extract and reference, you won't be included — no matter how good your product or service is.
+            </p>
+            <p className="text-muted-foreground text-base leading-relaxed">
+              This isn't a penalty. It's silent exclusion. And most businesses don't even realise it's happening.
+            </p>
+          </ScrollReveal>
         </div>
-      </section>
+      </Section>
 
       {/* ───── 3. HOW IT WORKS ───── */}
       <Section id="how-it-works">
@@ -355,7 +352,7 @@ const Index = () => {
             },
           ].map((s) => (
             <ScrollReveal key={s.num}>
-              <CardWrap className="p-8 text-center h-full hover:border-white/10 transition-colors">
+              <CardWrap className="p-8 text-center h-full">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
                   {s.icon}
                 </div>
@@ -372,42 +369,40 @@ const Index = () => {
       </Section>
 
       {/* ───── 4. WHAT YOU'LL RECEIVE ───── */}
-      <section className="py-24 md:py-32 noise-overlay" style={{ backgroundColor: "#0a0a0a" }}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <ScrollReveal>
-              <Pill>YOUR REPORT</Pill>
-              <h2 className="text-foreground font-bold text-3xl md:text-4xl mb-4">
-                Here's what you'll <span className="text-primary">receive</span>
-              </h2>
-              <ul className="space-y-4 mb-6">
-                {[
-                  "What is blocking eligibility",
-                  "What is limiting search and AI visibility",
-                  "What should be fixed, merged, or removed",
-                  "What matters now versus later",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-muted-foreground text-base">
-                    <TealCheck />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-muted-foreground text-base leading-relaxed">
-                You will not receive a checklist — only a clear assessment of what's limiting visibility and what actions require a decision. No fluff. No padding.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal>
-              <CardWrap className="overflow-hidden">
-                <div className="relative">
-                  <img src={sampleAuditImg} alt="Sample audit report preview" className="w-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-                </div>
-              </CardWrap>
-            </ScrollReveal>
-          </div>
+      <Section alt className="border-t border-border">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <ScrollReveal>
+            <Pill>YOUR REPORT</Pill>
+            <h2 className="text-foreground font-bold text-3xl md:text-4xl mb-4">
+              Here's what you'll <span className="text-primary">receive</span>
+            </h2>
+            <ul className="space-y-4 mb-6">
+              {[
+                "What is blocking eligibility",
+                "What is limiting search and AI visibility",
+                "What should be fixed, merged, or removed",
+                "What matters now versus later",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3 text-muted-foreground text-base">
+                  <TealCheck />
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <p className="text-muted-foreground text-base leading-relaxed">
+              You will not receive a checklist — only a clear assessment of what's limiting visibility and what actions require a decision. No fluff. No padding.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <CardWrap className="overflow-hidden">
+              <div className="relative">
+                <img src={sampleAuditImg} alt="Sample audit report preview" className="w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
+            </CardWrap>
+          </ScrollReveal>
         </div>
-      </section>
+      </Section>
 
       {/* ───── 5. WHAT THIS IS / ISN'T ───── */}
       <Section>
@@ -488,7 +483,7 @@ const Index = () => {
                     "{t.quote}"
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-syne font-bold text-sm">
                       {t.name[0]}
                     </div>
                     <div>
