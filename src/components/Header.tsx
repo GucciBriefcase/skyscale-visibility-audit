@@ -3,9 +3,7 @@ import skyscaleLogo from "@/assets/skyscale-logo.png";
 import CTAButton from "./CTAButton";
 
 const navLinks = [
-  { label: "Visibility Audit", href: "#hero" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Insights", href: "#invisible" },
   { label: "Contact", href: "#footer" },
 ];
 

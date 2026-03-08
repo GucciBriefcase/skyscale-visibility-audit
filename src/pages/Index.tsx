@@ -32,7 +32,7 @@ const RedX = () => (
 const Stars = () => (
   <div className="flex gap-0.5 mb-3">
     {[...Array(5)].map((_, i) => (
-      <Star key={i} size={18} className="text-primary fill-primary" />
+      <Star key={i} size={20} className="text-primary fill-primary" />
     ))}
   </div>
 );
@@ -87,7 +87,7 @@ const scrollTo = (id: string) => {
 const MidPageCTA: React.FC = () => {
   const [url, setUrl] = useState("");
   return (
-    <div className="max-w-[550px] mx-auto mt-12 mb-2">
+    <div className="max-w-xl mx-auto mt-16 mb-2">
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="url"
@@ -235,7 +235,7 @@ const Index = () => {
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-14">
             <Pill>FREE AI VISIBILITY AUDIT</Pill>
-            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mb-6">
+            <h1 className="text-foreground font-extrabold text-4xl md:text-5xl leading-[1.12] mb-6 max-w-2xl mx-auto">
               See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
             </h1>
             <p className="text-muted-foreground text-base max-w-2xl mx-auto">
@@ -255,7 +255,7 @@ const Index = () => {
               ].map((s) => (
                 <div key={s.label} className="text-center">
                   <p className="text-primary font-extrabold text-2xl md:text-3xl leading-normal">{s.val}</p>
-                  <p className="text-muted-foreground text-xs mt-1">{s.label}</p>
+                  <p className="text-gray-400 text-sm mt-1.5">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -275,9 +275,9 @@ const Index = () => {
               <input
                 type="url"
                 placeholder="Enter your website URL"
-                className="flex-1 bg-secondary border border-border rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+                className="flex-[1.8] min-w-0 bg-secondary border border-border rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
               />
-              <CTAButton size="md" className="h-12 px-8 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
+              <CTAButton size="md" className="flex-1 h-12 px-6 shadow-[0_0_20px_hsl(174_100%_42%/0.3)]" onClick={() => scrollTo("audit-form")}>
                 Get My Free Audit →
               </CTAButton>
             </div>
@@ -349,18 +349,18 @@ const Index = () => {
             },
           ].map((s) => (
             <ScrollReveal key={s.num}>
-              <CardWrap className="p-8 text-center h-full min-h-[240px] flex flex-col justify-center">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+              <CardWrap className="p-8 h-full min-h-[240px] flex flex-col relative">
+                <span className="absolute top-4 right-4 text-xs font-bold text-primary/30">{s.num}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   {s.icon}
                 </div>
-                <p className="text-primary/40 text-xs font-bold mb-2">{s.num}</p>
-                <h3 className="text-foreground font-semibold text-lg mb-3">{s.title}</h3>
-                <p className="text-muted-foreground text-[0.9375rem] leading-relaxed">{s.desc}</p>
+                <h3 className="text-foreground font-semibold text-lg mb-3 text-left">{s.title}</h3>
+                <p className="text-muted-foreground text-[0.9375rem] leading-relaxed text-left">{s.desc}</p>
               </CardWrap>
             </ScrollReveal>
           ))}
         </div>
-        <p className="text-muted-foreground text-sm text-center mt-10 mb-6">
+        <p className="text-muted-foreground text-sm text-center mt-10 mb-8">
           No obligation. No pressure.
         </p>
 
@@ -482,7 +482,7 @@ const Index = () => {
               <ScrollReveal key={t.name}>
                 <CardWrap className="p-8 h-full flex flex-col">
                   <Stars />
-                  <p className="text-muted-foreground text-[1.0625rem] leading-relaxed mb-8 flex-1">
+                  <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-1">
                     "{t.quote}"
                   </p>
                   <div className="flex items-center gap-3">
@@ -490,8 +490,8 @@ const Index = () => {
                       {t.name[0]}
                     </div>
                     <div>
-                      <p className="text-foreground font-semibold text-sm">{t.name}</p>
-                      <p className="text-muted-foreground text-sm">{t.title}, {t.company}</p>
+                      <p className="text-foreground font-semibold text-base">{t.name}</p>
+                      <p className="text-gray-400 text-sm">{t.title}, {t.company}</p>
                     </div>
                   </div>
                 </CardWrap>
