@@ -434,19 +434,19 @@ const Index = () => {
           <ScrollReveal>
             <CardWrap className="rounded-2xl p-8 md:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div className="space-y-5">
+                <div className="space-y-3">
                   {reportModules.map((mod) => (
-                    <div key={mod.title} className="flex items-start gap-4">
-                      <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
+                    <div key={mod.title} className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
                         {mod.icon}
                       </span>
                       <div>
                         <p className="text-foreground font-semibold text-sm mb-0.5">{mod.title}</p>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{mod.desc}</p>
+                        <p className="text-muted-foreground text-xs leading-relaxed">{mod.desc}</p>
                       </div>
                     </div>
                   ))}
-                  <p className="text-muted-foreground text-sm leading-relaxed pt-2">
+                  <p className="text-muted-foreground text-xs leading-relaxed pt-2">
                     No fluff. No padding. Just a clear, decision-ready assessment.
                   </p>
                 </div>
