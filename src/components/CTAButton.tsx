@@ -23,7 +23,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   const base = `cta-btn ${sizeClass} ${className}`;
 
   if (variant === "outline") {
-    const outlineCls = `inline-flex items-center justify-center rounded-full border border-primary text-primary bg-transparent font-syne font-bold transition-all duration-300 cursor-pointer hover:bg-primary/10 ${
+    const outlineCls = `inline-flex items-center justify-center rounded-full border border-primary text-primary bg-transparent font-bold transition-all duration-300 cursor-pointer hover:bg-primary/10 ${
       size === "sm" ? "px-7 py-3 text-sm" : size === "lg" ? "px-10 py-4 text-base" : "px-7 py-3.5 text-sm"
     } ${className}`;
     if (href) {
