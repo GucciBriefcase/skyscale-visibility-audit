@@ -122,8 +122,8 @@ const BottomForm: React.FC = () => {
   const update = (key: string, value: string) => setForm((f) => ({ ...f, [key]: value }));
 
   const inputCls =
-    "w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition";
-  const labelCls = "block text-sm font-semibold text-foreground mb-1.5";
+    "w-full bg-white/[0.05] border border-white/[0.08] rounded-lg px-4 py-3 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition";
+  const labelCls = "block text-sm font-medium text-gray-300 mb-1.5";
 
   if (submitted) {
     return (
