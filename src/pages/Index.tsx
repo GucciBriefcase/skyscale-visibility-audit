@@ -266,14 +266,14 @@ const Index = () => {
       <SectionDivider />
 
       {/* ───── 2. PROBLEM — slightly lighter bg ───── */}
-      <section id="invisible" className="py-24 md:py-32 noise-overlay" style={{ background: "hsl(240 25% 8%)" }}>
+      <section id="invisible" className="py-24 md:py-32 noise-overlay bg-problem">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
               <img src={invisibleImg} alt="AI visibility data" className="rounded-xl w-full object-cover" />
             </ScrollReveal>
             <ScrollReveal>
-              <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-5">
+              <h2 className="text-foreground font-bold text-3xl mb-4">
                 Most businesses are invisible in AI answers
               </h2>
               <p className="text-body text-base leading-relaxed mb-4">
