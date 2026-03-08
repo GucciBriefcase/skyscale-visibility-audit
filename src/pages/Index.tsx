@@ -378,10 +378,10 @@ const Index = () => {
       <SectionDivider />
 
       {/* ───── 5. WHAT THIS IS / ISN'T ───── */}
-      <Section>
+      <Section bg="bg-problem">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="text-foreground font-bold text-2xl md:text-3xl mb-3">
+          <div className="text-center mb-14">
+            <h2 className="text-foreground font-bold text-3xl mb-4">
               A visibility eligibility check — not a marketing report
             </h2>
             <p className="text-body text-base max-w-2xl mx-auto">
