@@ -109,13 +109,15 @@ const MidPageCTA: React.FC = () => {
           placeholder="Enter your website URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-[1.8] min-w-0 bg-white/[0.06] border border-white/[0.10] rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+          className="flex-[1.8] min-w-0 bg-white/[0.08] border border-white/[0.14] rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
         />
         <CTAButton size="md" className={`h-12 px-8 ${ctaGlow}`} onClick={() => scrollTo("audit-form")}>
           Get My Free Audit
         </CTAButton>
       </div>
-      <TrustLine className="mt-3" />
+      <p className="text-muted-foreground text-xs text-center mt-3">
+        No obligation · Manually reviewed · Results within 48 hours
+      </p>
     </div>
   );
 };
