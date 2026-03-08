@@ -87,7 +87,7 @@ const scrollTo = (id: string) => {
 const MidPageCTA: React.FC = () => {
   const [url, setUrl] = useState("");
   return (
-    <div className="max-w-[550px] mx-auto mt-12 mb-2">
+    <div className="max-w-xl mx-auto mt-16 mb-2">
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="url"
