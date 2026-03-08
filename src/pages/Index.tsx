@@ -185,14 +185,14 @@ const BottomForm: React.FC = () => {
       )}
 
       <div className="mt-6">
-        <CTAButton size="lg" className="w-full" onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
+        <CTAButton size="lg" className="w-full shadow-[0_0_20px_hsl(170_100%_45%/0.3)]" onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
           Get My Free Audit →
         </CTAButton>
       </div>
 
       <div className="flex items-center justify-center gap-1.5 mt-4 text-muted-foreground">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
-        <span className="text-xs">We never store your data</span>
+        <span className="text-xs">Your data stays private</span>
       </div>
     </div>
   );
