@@ -435,28 +435,31 @@ const Index = () => {
       <SectionDivider />
 
       {/* ───── 6. TESTIMONIALS — stacked, larger quotes ───── */}
-      <section className="py-24 md:py-32 noise-overlay" style={{ background: "linear-gradient(180deg, hsl(240 20% 6%) 0%, hsl(240 25% 9%) 100%)" }}>
+      <section className="py-24 md:py-32 noise-overlay bg-testimonials">
         <div className="max-w-3xl mx-auto px-6">
           <ScrollReveal>
-            <h2 className="text-foreground font-bold text-2xl md:text-3xl text-center mb-14">
+            <h2 className="text-foreground font-bold text-3xl text-center mb-4">
               What our clients say
             </h2>
+            <p className="text-body text-base text-center mb-14 max-w-xl mx-auto">
+              Hear from teams who've used the audit to uncover blind spots.
+            </p>
           </ScrollReveal>
           <div className="space-y-8">
             {testimonials.map((t) => (
               <ScrollReveal key={t.name}>
-                <div className="card-premium rounded-2xl p-8 md:p-10 border-l-2 border-l-primary">
+                <div className="bg-white/[0.03] border border-white/5 rounded-xl p-8 md:p-10 border-l-2 border-l-primary">
                   <Quote size={28} className="text-primary/30 mb-5" />
-                  <p className="text-body text-xl md:text-[1.35rem] leading-relaxed mb-8">
+                  <p className="text-body text-[1.15rem] md:text-xl leading-relaxed mb-8">
                     "{t.quote}"
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-lg">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center text-primary font-bold text-xl">
                       {t.name[0]}
                     </div>
                     <div>
                       <p className="text-foreground font-semibold text-sm">{t.name}</p>
-                      <p className="text-caption text-xs">{t.title}, {t.company}</p>
+                      <p className="text-muted-foreground text-sm">{t.title}, {t.company}</p>
                     </div>
                   </div>
                 </div>
