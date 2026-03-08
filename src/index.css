@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,43 +6,45 @@
 
 @layer base {
   :root {
-    --background: 240 20% 4%;
-    --background-alt: 240 20% 8%;
+    --background: 0 0% 3.1%;
     --foreground: 0 0% 100%;
-    --card: 240 18% 10%;
+    --card: 0 0% 6.7%;
     --card-foreground: 0 0% 100%;
-    --popover: 240 18% 10%;
+    --popover: 0 0% 6.7%;
     --popover-foreground: 0 0% 100%;
-    --primary: 170 100% 45%;
-    --primary-foreground: 240 20% 4%;
-    --secondary: 240 18% 10%;
+    --primary: 174 100% 42%;
+    --primary-foreground: 160 30% 7%;
+    --secondary: 0 0% 11.8%;
     --secondary-foreground: 0 0% 91%;
-    --muted: 240 15% 15%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 170 100% 45%;
-    --accent-foreground: 240 20% 4%;
+    --muted: 0 0% 11.8%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 174 100% 42%;
+    --accent-foreground: 160 30% 7%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 100% / 0.07;
-    --input: 0 0% 100% / 0.07;
-    --ring: 170 100% 45%;
-    --radius: 0.5rem;
+    --border: 0 0% 11.8%;
+    --input: 0 0% 11.8%;
+    --ring: 174 100% 42%;
+    --radius: 0.75rem;
 
-    --body-text: 0 0% 91%;
+    --body-text: 0 0% 63%;
+    --muted-text: 170 15% 53%;
     --caption-text: 0 0% 55%;
-    --cta-teal: 170 100% 45%;
-    --cta-glow: 0 0 20px hsl(170 100% 45% / 0.3);
+    --surface: 0 0% 4.5%;
+    --surface-elevated: 0 0% 8%;
+    --cta-bg: 170 33% 8.6%;
+    --cta-text: 160 15% 4%;
     --section-divider: 0 0% 100% / 0.08;
-    --card-border: 0 0% 100% / 0.07;
+    --card-border: 0 0% 100% / 0.06;
 
-    --sidebar-background: 240 20% 4%;
-    --sidebar-foreground: 0 0% 55%;
-    --sidebar-primary: 170 100% 45%;
-    --sidebar-primary-foreground: 240 20% 4%;
-    --sidebar-accent: 240 18% 10%;
+    --sidebar-background: 0 0% 3.1%;
+    --sidebar-foreground: 0 0% 63%;
+    --sidebar-primary: 174 100% 42%;
+    --sidebar-primary-foreground: 160 30% 7%;
+    --sidebar-accent: 0 0% 6.7%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 100% / 0.07;
-    --sidebar-ring: 170 100% 45%;
+    --sidebar-border: 0 0% 11.8%;
+    --sidebar-ring: 174 100% 42%;
   }
 }
 
@@ -59,7 +61,7 @@
     scroll-behavior: smooth;
   }
   select option {
-    background: hsl(240 18% 10%);
+    background: hsl(0 0% 6.7%);
     color: white;
   }
 }
@@ -71,17 +73,17 @@
   .text-caption {
     color: hsl(var(--caption-text));
   }
-  .bg-alt {
-    background-color: hsl(var(--background-alt));
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+  .bg-surface-elevated {
+    background-color: hsl(var(--surface-elevated));
   }
   .bg-cta-gradient {
-    background: linear-gradient(to bottom, hsl(170 100% 45% / 0.06), hsl(240 20% 4%) 30%, hsl(240 20% 4%));
-  }
-  .bg-problem {
-    background-color: hsl(222 47% 7%);
+    background: linear-gradient(to bottom, hsl(174 100% 42% / 0.06), hsl(var(--background)) 30%, hsl(var(--background)));
   }
   .bg-testimonials {
-    background: radial-gradient(ellipse at center, hsl(170 100% 45% / 0.03) 0%, transparent 70%), hsl(240 20% 5%);
+    background: radial-gradient(ellipse at center, hsl(174 100% 42% / 0.03) 0%, transparent 70%), hsl(var(--surface));
   }
   .section-divider {
     border-color: hsl(var(--section-divider));
@@ -104,11 +106,90 @@
     position: relative;
     z-index: 1;
   }
-  .cta-glow {
-    box-shadow: 0 0 20px hsl(170 100% 45% / 0.3), 0 0 60px hsl(170 100% 45% / 0.1);
+
+  /* CTA button with hover animation */
+  .cta-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    border-radius: 9999px;
+    border: 1.5px solid hsl(174 100% 42%);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    background: transparent;
+    color: hsl(160 15% 4%);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
   }
+  .cta-btn::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: hsl(174 100% 42%);
+    transform: scale(1);
+    transition: transform 350ms cubic-bezier(.2,.8,.2,1);
+    z-index: -1;
+  }
+  .cta-btn span {
+    position: relative;
+    z-index: 1;
+    transition: color 350ms cubic-bezier(.2,.8,.2,1);
+  }
+  .cta-btn:hover::before {
+    transform: scale(0);
+  }
+  .cta-btn:hover span {
+    color: hsl(174 100% 42%);
+  }
+  .cta-btn-sm {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+  .cta-btn-bottom {
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  /* Pill / badge */
+  .pill {
+    display: inline-flex;
+    border: 1px solid hsl(174 100% 42% / 0.25);
+    background: hsl(0 0% 0% / 0.2);
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: hsl(174 100% 42%);
+  }
+
+  /* Section label */
+  .section-label {
+    color: hsl(174 100% 42%);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Card hover glow */
+  .card-hover-glow {
+    transition: border-color 350ms ease, box-shadow 350ms ease;
+  }
+  .card-hover-glow:hover {
+    border-color: hsl(174 100% 42% / 0.3);
+    box-shadow: 0 0 20px hsl(174 100% 42% / 0.1);
+  }
+
   .card-premium {
-    background: hsl(240 18% 10%);
-    border: 1px solid hsl(0 0% 100% / 0.07);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
   }
 }
