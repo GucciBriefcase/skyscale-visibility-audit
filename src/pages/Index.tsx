@@ -70,6 +70,7 @@ const TrustLine: React.FC<{ className?: string }> = ({ className = "" }) => (
 /* ── Testimonials ───────────────────────────── */
 const testimonials = [
   {
+    headline: "From invisible to cited by AI",
     quote: "The audit revealed blind spots we had no idea existed. Within weeks of implementing the recommendations, our brand started appearing in AI-generated answers for the first time.",
     name: "Sarah Chen",
     title: "Head of Growth",
@@ -77,6 +78,7 @@ const testimonials = [
     highlight: "appearing in AI-generated answers",
   },
   {
+    headline: "A brutally honest wake-up call",
     quote: "No fluff, no upsell — just a brutally honest assessment of where we stood. It changed how we think about online visibility entirely.",
     name: "Marcus Webb",
     title: "Founder & CEO",
