@@ -536,7 +536,7 @@ const Index = () => {
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map((t) => (
                 <ScrollReveal key={t.name}>
-                  <CardWrap className="p-10 h-full flex flex-col border-l-2 border-l-primary/40">
+                  <CardWrap className="p-6 md:p-10 h-full flex flex-col border-l-2 border-l-primary/40">
                     <p className="text-foreground font-semibold text-sm mb-2">{t.headline}</p>
                     <Stars />
                     <p className="text-muted-foreground/80 text-base leading-relaxed mb-8 flex-1">
