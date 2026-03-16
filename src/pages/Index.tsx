@@ -561,8 +561,8 @@ const Index = () => {
         </Section>
 
         {/* ───── 7. FINAL CTA ───── */}
-        <section id="audit-form" className="py-28 md:py-32 bg-cta-gradient noise-overlay">
-          <div className="max-w-xl mx-auto px-6">
+        <section id="audit-form" className="py-16 md:py-28 lg:py-32 bg-cta-gradient noise-overlay">
+          <div className="max-w-xl mx-auto px-4 sm:px-6">
             <ScrollReveal>
               <div className="text-center mb-10">
                 <Pill>GET STARTED</Pill>
