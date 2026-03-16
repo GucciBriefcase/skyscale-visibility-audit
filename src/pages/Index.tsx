@@ -157,17 +157,12 @@ const reportModules = [
 const BottomForm: React.FC = () => {
   const { url } = React.useContext(URLContext);
   const [submitted, setSubmitted] = useState(false);
-  const [showOptional, setShowOptional] = useState(false);
   const [form, setForm] = useState({
     website: "",
     email: "",
     industry: "",
-    fullName: "",
-    company: "",
-    prompted: "",
   });
 
-  // Sync URL from context into form
   useEffect(() => {
     if (url && !form.website) {
       setForm((f) => ({ ...f, website: url }));
@@ -182,7 +177,7 @@ const BottomForm: React.FC = () => {
 
   if (submitted) {
     return (
-      <CardWrap className="rounded-2xl p-8 md:p-10 text-center">
+      <CardWrap className="rounded-2xl p-8 md:p-10 text-center max-w-md mx-auto">
         <div className="flex flex-col items-center justify-center py-8 animate-fade-in">
           <Check size={48} className="text-primary mb-4" />
           <p className="text-foreground font-bold text-xl mb-2">Thank you!</p>
@@ -205,8 +200,10 @@ const BottomForm: React.FC = () => {
     "Other",
   ];
 
+  const isValid = form.website.trim() !== "" && form.email.trim() !== "" && form.industry !== "";
+
   return (
-    <CardWrap className="rounded-2xl p-8 md:p-10">
+    <CardWrap className="rounded-2xl p-8 md:p-10 max-w-md mx-auto">
       <h3 className="text-foreground font-bold text-xl md:text-2xl mb-1">Request Your Free Audit</h3>
       <p className="text-muted-foreground text-sm mb-6">
         Manually reviewed by our team · Results within 48 hours
@@ -235,43 +232,19 @@ const BottomForm: React.FC = () => {
         </div>
       </div>
 
-      {/* Optional fields toggle */}
-      <button
-        type="button"
-        onClick={() => setShowOptional(!showOptional)}
-        className="text-primary text-sm font-medium mt-5 hover:underline transition flex items-center gap-1"
-      >
-        <ChevronDown size={14} className={`transition-transform ${showOptional ? "rotate-180" : ""}`} />
-        Optional: Help us personalise your audit
-      </button>
-
-      {showOptional && (
-        <div className="space-y-4 mt-4 animate-fade-in">
-          <div>
-            <label className={labelCls}>Full Name</label>
-            <input className={inputCls} value={form.fullName} onChange={(e) => update("fullName", e.target.value)} />
-          </div>
-          <div>
-            <label className={labelCls}>Company Name</label>
-            <input className={inputCls} value={form.company} onChange={(e) => update("company", e.target.value)} />
-          </div>
-          <div>
-            <label className={labelCls}>What prompted you to request this audit?</label>
-            <textarea className={`${inputCls} resize-none`} rows={3} value={form.prompted} onChange={(e) => update("prompted", e.target.value)} />
-          </div>
-        </div>
-      )}
-
       <div className="mt-6">
-        <CTAButton size="lg" className={`w-full h-12 ${ctaGlow}`} onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}>
+        <CTAButton
+          size="lg"
+          className={`w-full h-12 ${ctaGlow} ${!isValid ? "opacity-60 pointer-events-none" : ""}`}
+          onClick={() => { console.log("Form submitted:", form); setSubmitted(true); }}
+        >
           Get My Free Audit
         </CTAButton>
       </div>
 
-      <div className="flex items-center justify-center gap-1.5 mt-4 text-muted-foreground">
-        <Lock size={12} />
-        <span className="text-xs">Your information stays private</span>
-      </div>
+      <p className="text-muted-foreground text-xs text-center mt-4">
+        No credit card required · Results within 48 hours
+      </p>
     </CardWrap>
   );
 };
