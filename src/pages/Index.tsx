@@ -558,7 +558,7 @@ const Index = () => {
               ))}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ───── 7. FINAL CTA ───── */}
         <section id="audit-form" className="py-28 md:py-32 bg-cta-gradient noise-overlay">
