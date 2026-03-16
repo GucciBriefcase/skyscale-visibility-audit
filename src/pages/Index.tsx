@@ -352,7 +352,7 @@ const Index = () => {
 
         {/* ───── 2. PROBLEM ───── */}
         <Section id="invisible" alt>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal>
               <AIResponseMockup />
             </ScrollReveal>
