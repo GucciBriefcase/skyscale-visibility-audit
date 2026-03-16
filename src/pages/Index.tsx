@@ -520,7 +520,7 @@ const Index = () => {
         </Section>
 
         {/* ───── 6. TESTIMONIALS ───── */}
-        <Section alt className="bg-testimonials">
+        <Section className="bg-testimonials">
           <div>
             <ScrollReveal>
               <div className="text-center mb-14">
