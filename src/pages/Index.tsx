@@ -291,14 +291,14 @@ const Index = () => {
         <WhatsAppButton />
 
         {/* ───── 1. HERO ───── */}
-        <Section id="hero" className="pt-28 md:pt-36 pb-24 md:pb-32">
+        <Section id="hero" className="pt-28 md:pt-36">
           <ScrollReveal>
             <div className="text-center max-w-4xl mx-auto mb-10">
               <Pill>FREE AI VISIBILITY AUDIT</Pill>
               <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-4xl mx-auto">
                 See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
               </h1>
-              <p className="text-muted-foreground/90 text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 A free, human-reviewed assessment of your brand's visibility across search and AI.
               </p>
             </div>
@@ -426,7 +426,7 @@ const Index = () => {
         </Section>
 
         {/* ───── 4. WHAT YOU'LL RECEIVE ───── */}
-        <Section alt className="border-t border-border">
+        <Section alt>
           <ScrollReveal>
             <div className="text-center mb-14">
               <Pill>YOUR REPORT</Pill>
@@ -520,8 +520,8 @@ const Index = () => {
         </Section>
 
         {/* ───── 6. TESTIMONIALS ───── */}
-        <section className="py-24 md:py-32 noise-overlay bg-testimonials">
-          <div className="max-w-6xl mx-auto px-6">
+        <Section className="bg-testimonials">
+          <div>
             <ScrollReveal>
               <div className="text-center mb-14">
                 <Pill>TESTIMONIALS</Pill>
@@ -558,7 +558,7 @@ const Index = () => {
               ))}
             </div>
           </div>
-        </section>
+        </Section>
 
         {/* ───── 7. FINAL CTA ───── */}
         <section id="audit-form" className="py-28 md:py-32 bg-cta-gradient noise-overlay">
