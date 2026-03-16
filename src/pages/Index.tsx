@@ -298,7 +298,7 @@ const Index = () => {
               <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-4xl mx-auto">
                 See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
               </h1>
-              <p className="text-muted-foreground/90 text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 A free, human-reviewed assessment of your brand's visibility across search and AI.
               </p>
             </div>
