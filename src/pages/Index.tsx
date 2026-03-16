@@ -409,7 +409,7 @@ const Index = () => {
               },
             ].map((s) => (
               <ScrollReveal key={s.num}>
-                <CardWrap className="p-8 h-full min-h-[240px] flex flex-col items-start justify-start relative">
+                <CardWrap className="p-6 md:p-8 h-full md:min-h-[240px] flex flex-col items-start justify-start relative">
                   <span className="absolute top-4 right-4 text-xs font-bold text-primary/30">{s.num}</span>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
                     {s.icon}
