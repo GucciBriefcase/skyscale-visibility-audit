@@ -436,7 +436,7 @@ const Index = () => {
           <ScrollReveal>
             <CardWrap className="rounded-2xl p-8 md:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-3">
+                <div className="space-y-5">
                   {reportModules.map((mod) => (
                     <div key={mod.title} className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-5 h-5 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
@@ -452,8 +452,9 @@ const Index = () => {
                     No fluff. No padding. Just a clear, decision-ready assessment.
                   </p>
                 </div>
-                <div className="overflow-hidden rounded-xl">
-                  <img src={sampleAuditImg} alt="Sample audit report preview" className="w-full object-cover" />
+                <div className="relative overflow-hidden rounded-xl border border-border/60 bg-white/[0.02] p-1.5">
+                  <img src={sampleAuditImg} alt="Sample audit report preview" className="w-full object-cover rounded-lg" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/[0.03] rounded-xl pointer-events-none" />
                 </div>
               </div>
             </CardWrap>
