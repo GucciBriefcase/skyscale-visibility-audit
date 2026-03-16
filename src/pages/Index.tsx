@@ -304,20 +304,20 @@ const Index = () => {
 
           {/* Trust stats */}
           <ScrollReveal>
-            <CardWrap className="max-w-lg mx-auto mb-8 px-10 py-6">
-              <div className="flex items-center justify-around">
+            <div className="max-w-lg mx-auto mb-8 rounded-2xl border border-border/60 bg-white/[0.02] px-10 py-6">
+              <div className="flex items-center justify-around divide-x divide-border/40">
                 {[
                   { val: "100+", label: "Audits delivered" },
                   { val: "48hr", label: "Turnaround time" },
                   { val: "$0", label: "Completely free" },
                 ].map((s) => (
-                  <div key={s.label} className="text-center">
+                  <div key={s.label} className="text-center flex-1">
                     <p className="text-primary font-extrabold text-3xl md:text-4xl leading-normal">{s.val}</p>
                     <p className="text-muted-foreground text-sm mt-1.5">{s.label}</p>
                   </div>
                 ))}
               </div>
-            </CardWrap>
+            </div>
           </ScrollReveal>
 
           <ScrollReveal>
