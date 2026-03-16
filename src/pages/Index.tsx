@@ -574,6 +574,18 @@ const Index = () => {
                 </p>
               </div>
               <BottomForm />
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6">
+                {[
+                  { icon: <Shield size={14} />, text: "No credit card required" },
+                  { icon: <Clock size={14} />, text: "Results within 48 hours" },
+                  { icon: <Check size={14} />, text: "Reviewed by a real team" },
+                ].map((item) => (
+                  <span key={item.text} className="flex items-center gap-1.5 text-muted-foreground text-xs">
+                    <span className="text-primary/60">{item.icon}</span>
+                    {item.text}
+                  </span>
+                ))}
+              </div>
             </ScrollReveal>
           </div>
         </section>
