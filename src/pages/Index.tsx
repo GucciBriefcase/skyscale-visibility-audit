@@ -497,7 +497,7 @@ const Index = () => {
               </CardWrap>
             </ScrollReveal>
             <ScrollReveal>
-              <CardWrap className="p-8 md:p-10 h-full">
+              <CardWrap className="p-6 md:p-10 h-full">
                 <h3 className="text-foreground font-bold text-lg mb-6">What this audit is not</h3>
                 <ul className="space-y-5">
                   {[
