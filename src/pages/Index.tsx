@@ -536,11 +536,12 @@ const Index = () => {
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map((t) => (
                 <ScrollReveal key={t.name}>
-                  <CardWrap className="p-8 h-full flex flex-col">
+                  <CardWrap className="p-10 h-full flex flex-col border-l-2 border-l-primary/40">
+                    <p className="text-foreground font-semibold text-sm mb-2">{t.headline}</p>
                     <Stars />
-                    <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-1">
+                    <p className="text-muted-foreground/80 text-base leading-relaxed mb-8 flex-1">
                       "{t.quote.split(t.highlight)[0]}
-                      <span className="text-foreground font-medium">{t.highlight}</span>
+                      <span className="text-foreground/70 font-medium">{t.highlight}</span>
                       {t.quote.split(t.highlight)[1]}"
                     </p>
                     <div className="flex items-center gap-3">
