@@ -329,15 +329,15 @@ const Index = () => {
           {/* Hero CTA — URL input */}
           <ScrollReveal>
             <div className="max-w-xl mx-auto mt-8">
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-stretch gap-3">
                 <input
                   type="url"
                   placeholder="Enter your website URL"
                   value={sharedUrl}
                   onChange={(e) => setSharedUrl(e.target.value)}
-                  className="flex-[1.8] min-w-0 bg-white/[0.07] border border-white/[0.12] rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+                  className="flex-[1.8] min-w-0 bg-white/[0.07] border border-white/[0.12] rounded-full px-6 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
                 />
-                <CTAButton size="lg" className={`flex-1 h-12 px-8 ${ctaGlow}`} onClick={() => scrollTo("audit-form")}>
+                <CTAButton size="lg" className={`flex-1 h-[52px] px-8 ${ctaGlow}`} onClick={() => scrollTo("audit-form")}>
                   Get My Free Audit
                 </CTAButton>
               </div>
