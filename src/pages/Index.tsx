@@ -306,7 +306,7 @@ const Index = () => {
 
           {/* Trust stats */}
           <ScrollReveal>
-            <div className="max-w-lg mx-auto mb-8 rounded-2xl border border-border/60 bg-white/[0.02] px-10 py-6">
+            <div className="max-w-lg mx-auto mb-8 rounded-2xl border border-border/60 bg-white/[0.02] px-4 sm:px-10 py-5 sm:py-6">
               <div className="flex items-center justify-around divide-x divide-border/40">
                 {[
                   { val: "100+", label: "Audits delivered" },
