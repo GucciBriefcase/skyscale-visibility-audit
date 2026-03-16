@@ -426,7 +426,7 @@ const Index = () => {
         </Section>
 
         {/* ───── 4. WHAT YOU'LL RECEIVE ───── */}
-        <Section alt className="border-t border-border">
+        <Section alt>
           <ScrollReveal>
             <div className="text-center mb-14">
               <Pill>YOUR REPORT</Pill>
