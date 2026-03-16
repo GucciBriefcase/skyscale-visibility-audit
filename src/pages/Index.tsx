@@ -296,7 +296,7 @@ const Index = () => {
               <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-4xl mx-auto">
                 See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
               </h1>
-              <p className="text-muted-foreground text-base max-w-2xl mx-auto">
+              <p className="text-muted-foreground/90 text-lg max-w-2xl mx-auto">
                 A free, human-reviewed assessment of your brand's visibility across search and AI.
               </p>
             </div>
@@ -304,20 +304,20 @@ const Index = () => {
 
           {/* Trust stats */}
           <ScrollReveal>
-            <CardWrap className="max-w-lg mx-auto mb-8 px-10 py-6">
-              <div className="flex items-center justify-around">
+            <div className="max-w-lg mx-auto mb-8 rounded-2xl border border-border/60 bg-white/[0.02] px-10 py-6">
+              <div className="flex items-center justify-around divide-x divide-border/40">
                 {[
                   { val: "100+", label: "Audits delivered" },
                   { val: "48hr", label: "Turnaround time" },
                   { val: "$0", label: "Completely free" },
                 ].map((s) => (
-                  <div key={s.label} className="text-center">
+                  <div key={s.label} className="text-center flex-1">
                     <p className="text-primary font-extrabold text-3xl md:text-4xl leading-normal">{s.val}</p>
                     <p className="text-muted-foreground text-sm mt-1.5">{s.label}</p>
                   </div>
                 ))}
               </div>
-            </CardWrap>
+            </div>
           </ScrollReveal>
 
           <ScrollReveal>
@@ -329,15 +329,15 @@ const Index = () => {
           {/* Hero CTA — URL input */}
           <ScrollReveal>
             <div className="max-w-xl mx-auto mt-8">
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-stretch gap-3">
                 <input
                   type="url"
                   placeholder="Enter your website URL"
                   value={sharedUrl}
                   onChange={(e) => setSharedUrl(e.target.value)}
-                  className="flex-[1.8] min-w-0 bg-white/[0.07] border border-white/[0.12] rounded-full px-6 py-3.5 h-12 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
+                  className="flex-[1.8] min-w-0 bg-white/[0.07] border border-white/[0.12] rounded-full px-6 h-[52px] text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary transition"
                 />
-                <CTAButton size="lg" className={`flex-1 h-12 px-8 ${ctaGlow}`} onClick={() => scrollTo("audit-form")}>
+                <CTAButton size="lg" className={`flex-1 h-[52px] px-8 ${ctaGlow}`} onClick={() => scrollTo("audit-form")}>
                   Get My Free Audit
                 </CTAButton>
               </div>
