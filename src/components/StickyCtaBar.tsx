@@ -15,13 +15,13 @@ const StickyCtaBar: React.FC = () => {
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-between">
-        <span className="text-primary-foreground font-semibold text-sm tracking-tight">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3">
+        <span className="text-primary-foreground font-semibold text-xs sm:text-sm tracking-tight whitespace-nowrap">
           Free audit — takes 30 seconds
         </span>
         <a
           href="#audit-form"
-          className="sticky-cta-btn font-bold text-sm px-5 py-2 rounded-full"
+          className="sticky-cta-btn font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 rounded-full whitespace-nowrap"
         >
           <span>Get My Free Audit</span>
         </a>

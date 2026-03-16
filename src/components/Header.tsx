@@ -34,7 +34,7 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        <div className="flex items-center">
+        <div className="flex items-center gap-2">
           <a
             href="#audit-form"
             className="hidden md:inline-flex cta-btn cta-btn-sm"

@@ -54,7 +54,7 @@ const Section: React.FC<{
 }> = ({ children, className = "", id, alt }) => (
   <section
     id={id}
-    className={`py-24 md:py-32 noise-overlay ${alt ? "bg-surface" : "bg-background"} ${className}`}
+    className={`py-16 md:py-24 lg:py-32 noise-overlay ${alt ? "bg-surface" : "bg-background"} ${className}`}
   >
     <div className="max-w-6xl mx-auto px-6">{children}</div>
   </section>
@@ -206,7 +206,7 @@ const BottomForm: React.FC = () => {
   ];
 
   return (
-    <CardWrap className="rounded-2xl p-8 md:p-10">
+    <CardWrap className="rounded-2xl p-5 sm:p-8 md:p-10">
       <h3 className="text-foreground font-bold text-xl md:text-2xl mb-1">Request Your Free Audit</h3>
       <p className="text-muted-foreground text-sm mb-6">
         Manually reviewed by our team · Results within 48 hours
@@ -295,7 +295,7 @@ const Index = () => {
           <ScrollReveal>
             <div className="text-center max-w-4xl mx-auto mb-10">
               <Pill>FREE AI VISIBILITY AUDIT</Pill>
-              <h1 className="text-foreground font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-4xl mx-auto">
+              <h1 className="text-foreground font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-6 max-w-4xl mx-auto">
                 See whether your brand is eligible to appear in <span className="text-primary">AI&#8209;generated</span> answers
               </h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -306,7 +306,7 @@ const Index = () => {
 
           {/* Trust stats */}
           <ScrollReveal>
-            <div className="max-w-lg mx-auto mb-8 rounded-2xl border border-border/60 bg-white/[0.02] px-10 py-6">
+            <div className="max-w-lg mx-auto mb-8 rounded-2xl border border-border/60 bg-white/[0.02] px-4 sm:px-10 py-5 sm:py-6">
               <div className="flex items-center justify-around divide-x divide-border/40">
                 {[
                   { val: "100+", label: "Audits delivered" },
@@ -314,7 +314,7 @@ const Index = () => {
                   { val: "$0", label: "Completely free" },
                 ].map((s) => (
                   <div key={s.label} className="text-center flex-1">
-                    <p className="text-primary font-extrabold text-3xl md:text-4xl leading-normal">{s.val}</p>
+                    <p className="text-primary font-extrabold text-2xl sm:text-3xl md:text-4xl leading-normal">{s.val}</p>
                     <p className="text-muted-foreground text-sm mt-1.5">{s.label}</p>
                   </div>
                 ))}
@@ -352,7 +352,7 @@ const Index = () => {
 
         {/* ───── 2. PROBLEM ───── */}
         <Section id="invisible" alt>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <ScrollReveal>
               <AIResponseMockup />
             </ScrollReveal>
@@ -387,7 +387,7 @@ const Index = () => {
               </p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 max-w-5xl mx-auto">
             {[
               {
                 num: "01",
@@ -409,7 +409,7 @@ const Index = () => {
               },
             ].map((s) => (
               <ScrollReveal key={s.num}>
-                <CardWrap className="p-8 h-full min-h-[240px] flex flex-col items-start justify-start relative">
+                <CardWrap className="p-6 md:p-8 h-full md:min-h-[240px] flex flex-col items-start justify-start relative">
                   <span className="absolute top-4 right-4 text-xs font-bold text-primary/30">{s.num}</span>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
                     {s.icon}
@@ -436,8 +436,8 @@ const Index = () => {
             </div>
           </ScrollReveal>
           <ScrollReveal>
-            <CardWrap className="rounded-2xl p-8 md:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <CardWrap className="rounded-2xl p-6 md:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div className="space-y-5">
                   {reportModules.map((mod) => (
                     <div key={mod.title} className="flex items-start gap-3">
@@ -478,7 +478,7 @@ const Index = () => {
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <ScrollReveal>
-              <CardWrap className="p-8 md:p-10 h-full">
+              <CardWrap className="p-6 md:p-10 h-full">
                 <h3 className="text-foreground font-bold text-lg mb-6">What this audit is</h3>
                 <ul className="space-y-5">
                   {[
@@ -497,7 +497,7 @@ const Index = () => {
               </CardWrap>
             </ScrollReveal>
             <ScrollReveal>
-              <CardWrap className="p-8 md:p-10 h-full">
+              <CardWrap className="p-6 md:p-10 h-full">
                 <h3 className="text-foreground font-bold text-lg mb-6">What this audit is not</h3>
                 <ul className="space-y-5">
                   {[
@@ -536,7 +536,7 @@ const Index = () => {
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               {testimonials.map((t) => (
                 <ScrollReveal key={t.name}>
-                  <CardWrap className="p-10 h-full flex flex-col border-l-2 border-l-primary/40">
+                  <CardWrap className="p-6 md:p-10 h-full flex flex-col border-l-2 border-l-primary/40">
                     <p className="text-foreground font-semibold text-sm mb-2">{t.headline}</p>
                     <Stars />
                     <p className="text-muted-foreground/80 text-base leading-relaxed mb-8 flex-1">
@@ -561,8 +561,8 @@ const Index = () => {
         </Section>
 
         {/* ───── 7. FINAL CTA ───── */}
-        <section id="audit-form" className="py-28 md:py-32 bg-cta-gradient noise-overlay">
-          <div className="max-w-xl mx-auto px-6">
+        <section id="audit-form" className="py-16 md:py-28 lg:py-32 bg-cta-gradient noise-overlay">
+          <div className="max-w-xl mx-auto px-4 sm:px-6">
             <ScrollReveal>
               <div className="text-center mb-10">
                 <Pill>GET STARTED</Pill>
