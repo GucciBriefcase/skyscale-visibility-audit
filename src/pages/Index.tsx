@@ -314,7 +314,7 @@ const Index = () => {
                   { val: "$0", label: "Completely free" },
                 ].map((s) => (
                   <div key={s.label} className="text-center flex-1">
-                    <p className="text-primary font-extrabold text-3xl md:text-4xl leading-normal">{s.val}</p>
+                    <p className="text-primary font-extrabold text-2xl sm:text-3xl md:text-4xl leading-normal">{s.val}</p>
                     <p className="text-muted-foreground text-sm mt-1.5">{s.label}</p>
                   </div>
                 ))}
