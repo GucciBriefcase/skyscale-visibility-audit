@@ -478,7 +478,7 @@ const Index = () => {
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <ScrollReveal>
-              <CardWrap className="p-8 md:p-10 h-full">
+              <CardWrap className="p-6 md:p-10 h-full">
                 <h3 className="text-foreground font-bold text-lg mb-6">What this audit is</h3>
                 <ul className="space-y-5">
                   {[
