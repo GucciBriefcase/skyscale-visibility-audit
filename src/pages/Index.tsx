@@ -291,7 +291,7 @@ const Index = () => {
         <WhatsAppButton />
 
         {/* ───── 1. HERO ───── */}
-        <Section id="hero" className="pt-28 md:pt-36 pb-24 md:pb-32">
+        <Section id="hero" className="pt-28 md:pt-36">
           <ScrollReveal>
             <div className="text-center max-w-4xl mx-auto mb-10">
               <Pill>FREE AI VISIBILITY AUDIT</Pill>
