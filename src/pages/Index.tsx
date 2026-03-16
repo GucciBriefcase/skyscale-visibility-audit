@@ -520,8 +520,8 @@ const Index = () => {
         </Section>
 
         {/* ───── 6. TESTIMONIALS ───── */}
-        <section className="py-24 md:py-32 noise-overlay bg-testimonials">
-          <div className="max-w-6xl mx-auto px-6">
+        <Section alt className="bg-testimonials">
+          <div>
             <ScrollReveal>
               <div className="text-center mb-14">
                 <Pill>TESTIMONIALS</Pill>
