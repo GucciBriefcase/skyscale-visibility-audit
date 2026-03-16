@@ -436,8 +436,8 @@ const Index = () => {
             </div>
           </ScrollReveal>
           <ScrollReveal>
-            <CardWrap className="rounded-2xl p-8 md:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <CardWrap className="rounded-2xl p-6 md:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div className="space-y-5">
                   {reportModules.map((mod) => (
                     <div key={mod.title} className="flex items-start gap-3">
